@@ -1,7 +1,9 @@
 * {
-	
 	margin: 0;
 	padding: 0;
+}
+body {
+	
 }
 
 header {
@@ -50,3 +52,13 @@ p {
 	button:hover {
 		background-color: green;
 	}
+
+	.game-content {
+		margin-top: 60px;
+		width: 40vw;
+	}
+.huvudorange {
+	z-index: -1;
+	visibility: 50%;
+	margin: 20px;
+}
