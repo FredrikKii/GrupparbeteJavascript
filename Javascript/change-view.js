@@ -41,12 +41,14 @@ const spelaBtn = document.querySelector(".spela")
 let toppListaNr = 0
 let element = 0 
 let toppListaBack
-let toppListaHeadP2 
+let toppListaHeadPDate
+let toppListaHeadPPoints
+
 
 topplistaBtn.addEventListener
 ("click", () =>{
-	
-// Function för sortering efter score: 
+
+// Function för sortering efter score:
 	function sortByScore(a, b) {
 		const scoreA = parseInt(a.score.split(' ')[0]) 
 		const scoreB = parseInt(b.score.split(' ')[0]); 
@@ -62,6 +64,7 @@ topplistaBtn.addEventListener
 	}
 	
 	const sortedScore = userInfo.sort(sortByScore);
+	
 	
 	// sortedScore.forEach(score => {
 	// 	const userScore = score.score;
@@ -88,15 +91,16 @@ topplistaBtn.addEventListener
 			}
 			else if (p===1){
 				toppListaHeadP = document.createElement("p")
+				toppListaHeadPPoints = toppListaHeadP
 				toppListaHeadP.innerText = "Poäng"
 				toppListaHeadDiv.appendChild(toppListaHeadP)
 			}
 			else if(p === 2) {
 				toppListaHeadP = document.createElement("p")
-				toppListaHeadP2 = toppListaHeadP
+				toppListaHeadPDate = toppListaHeadP
 				toppListaHeadP.innerText = "Datum"
 				toppListaHeadDiv.appendChild(toppListaHeadP)
-				console.log(toppListaHeadP2);
+				
 			}
 	
 			toppListaBack.appendChild(toppListaHeadh1)
@@ -132,12 +136,82 @@ topplistaBtn.addEventListener
 	// toppListaNr.style.display = "block";
 	toppListaBack.style.display = "block"
 }
+toppListaHeadPPoints.addEventListener("click", () => {
+    function sortByScore(a, b) {
+        const scoreA = parseInt(a.score.split(' ')[0]);
+        const scoreB = parseInt(b.score.split(' ')[0]);
+
+        if (scoreA > scoreB) {
+            return -1;
+        }
+        if (scoreA < scoreB) {
+            return 1;
+        }
+        return 0;
+    }
+
+    const sortedScore = userInfo.sort(sortByScore);
+
+    // Töm den befintliga listan
+    while (toppListaNr.firstChild) {
+        toppListaNr.removeChild(toppListaNr.firstChild);
+    }
+
+    for (let i = 1; i < sortedScore.length; i++) {
+        let toppListItems = document.createElement("li");
+        toppListItems.classList.add("list-columner");
+        let scoreItem = document.createElement("p");
+        let scoreDate = document.createElement("p");
+        toppListItems.innerText = sortedScore[i].user;
+        scoreItem.innerText = sortedScore[i].score;
+        scoreDate.innerText = sortedScore[i].date;
+
+        toppListItems.appendChild(scoreItem);
+        toppListItems.appendChild(scoreDate);
+        toppListaNr.appendChild(toppListItems);
+    }})
+
+toppListaHeadPDate.addEventListener("click", () => {
+    function sortByDate(a, b) {
+        const dateA = a.date.split(' ')[0];
+        const dateB = b.date.split(' ')[0];
+
+        if (dateA > dateB) {
+            return -1;
+        }
+        if (dateA < dateB) {
+            return 1;
+        }
+        return 0;
+    }
+
+    const sortedDate = userInfo.sort(sortByDate);
+
+    // Töm den befintliga listan
+    while (toppListaNr.firstChild) {
+        toppListaNr.removeChild(toppListaNr.firstChild);
+    }
+
+    for (let i = 1; i < sortedDate.length; i++) {
+        let toppListItems = document.createElement("li");
+        toppListItems.classList.add("list-columner");
+        let scoreItem = document.createElement("p");
+        let scoreDate = document.createElement("p");
+        toppListItems.innerText = sortedDate[i].user;
+        scoreItem.innerText = sortedDate[i].score;
+        scoreDate.innerText = sortedDate[i].date;
+
+        toppListItems.appendChild(scoreItem);
+        toppListItems.appendChild(scoreDate);
+        toppListaNr.appendChild(toppListItems);
+    }
+	
+});
 
 
 })
-
-
 spelaBtn.addEventListener("click", () =>{
 	hangman.style.display = "block"
 	toppListaBack.style.display = "none"
 })
+
