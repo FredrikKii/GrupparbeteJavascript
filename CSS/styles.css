@@ -1,11 +1,13 @@
 * {
+	/* box-sizing: border-box; */
 	margin: 0;
 	padding: 0;
 }
 body {
-	height: 100vh;
 	background: rgb(20,89,29);
 	background: linear-gradient(0deg, rgba(20,89,29,1) 5%, rgba(153,170,56,1) 10%, rgba(172,210,237,1) 20%);
+	height: 100vh;
+	box-sizing: border-box;
 }
 
 header {
@@ -74,4 +76,29 @@ button {
 	z-index: -1;
 	visibility: 50%;
 	margin: 20px;
+}
+
+main .start-content{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 5em;
+	font-family: 'Nosifer', sans-serif;
+	font-size: 1.4em;
+}
+main .start-content #input-name::placeholder {
+    text-align: center;
+}
+main .start-content #input-name{
+	padding: 0.5em;
+	margin: 1em;
+	border: 2px solid rgb(16, 16, 16);
+	border-radius: 5px;
+}
+main #error{
+	font-family: 'Nosifer', sans-serif;
+	font-size: 0.5em;
+	color: rgb(223, 68, 68);
+
 }
