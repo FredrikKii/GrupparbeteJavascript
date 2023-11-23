@@ -23,10 +23,18 @@ startGameBtn.addEventListener('click', () => {
         error.innerText = "Namnet får inte vara längre än 12 bokstäver.";
     }
     else {
-        localStorage.setItem('users', inputValue);
-        hangman.style.display = 'grid';
-        menu.style.display = 'grid';
-        startContent.innerHTML = "<h3>Välkommen</h3>" + inputValue
+        try {
+            const userInfo = JSON.parse(localStorage.getItem('users')) || [];
+            userInfo.push({ name: inputValue });
+            localStorage.setItem('users', JSON.stringify(userInfo));
+  
+            hangman.style.display = 'grid';
+            menu.style.display = 'grid';
+            startContent.innerHTML = "<h3>Välkommen</h3>" + inputValue;
+            console.log(localStorage);
+          } catch (error) {
+            console.error("Ett fel uppstod:", error);
+          }
         console.log(localStorage);
     }
 });
