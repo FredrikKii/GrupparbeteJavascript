@@ -71,7 +71,6 @@ topplistaBtn.addEventListener
 		
 	// }
 	// );
-	
 
 	hangman.style.display = "none"
 	if (element === 0){
@@ -92,12 +91,14 @@ topplistaBtn.addEventListener
 			else if (p===1){
 				toppListaHeadP = document.createElement("p")
 				toppListaHeadPPoints = toppListaHeadP
+				toppListaHeadPPoints.classList.add("point-date")
 				toppListaHeadP.innerText = "Poäng"
 				toppListaHeadDiv.appendChild(toppListaHeadP)
 			}
 			else if(p === 2) {
 				toppListaHeadP = document.createElement("p")
 				toppListaHeadPDate = toppListaHeadP
+				toppListaHeadPDate.classList.add("point-date")
 				toppListaHeadP.innerText = "Datum"
 				toppListaHeadDiv.appendChild(toppListaHeadP)
 				
@@ -107,7 +108,7 @@ topplistaBtn.addEventListener
 			toppListaBack.appendChild(toppListaHeadDiv)
 		}
 
-
+		toppListaHeadPDate.classList.toggle("alt")
 		toppListaBack.classList.add("back-style-list")
 		toppListaNr = document.createElement("ol")
 		toppListaNr.classList.add("topplista-style")
@@ -149,7 +150,8 @@ toppListaHeadPPoints.addEventListener("click", () => {
         }
         return 0;
     }
-
+	toppListaHeadPPoints.classList.remove("alt")
+	toppListaHeadPDate.classList.add("alt")
     const sortedScore = userInfo.sort(sortByScore);
 
     // Töm den befintliga listan
@@ -184,7 +186,8 @@ toppListaHeadPDate.addEventListener("click", () => {
         }
         return 0;
     }
-
+	toppListaHeadPPoints.classList.add("alt")
+	toppListaHeadPDate.classList.remove("alt")
     const sortedDate = userInfo.sort(sortByDate);
 
     // Töm den befintliga listan
@@ -205,7 +208,6 @@ toppListaHeadPDate.addEventListener("click", () => {
         toppListItems.appendChild(scoreDate);
         toppListaNr.appendChild(toppListItems);
     }
-	
 });
 
 
