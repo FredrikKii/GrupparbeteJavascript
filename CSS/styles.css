@@ -1,18 +1,19 @@
 * {
-	/* box-sizing: border-box; */
+	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 }
+
 body {
-	background: rgb(20,89,29);
-	background: linear-gradient(0deg, rgba(20,89,29,1) 5%, rgba(153,170,56,1) 10%, rgba(172,210,237,1) 20%);
-	height: 100vh;
-	box-sizing: border-box;
+	background: rgb(20, 89, 29);
+	background: linear-gradient(0deg, rgba(20, 89, 29, 1) 5%, rgba(153, 170, 56, 1) 10%, rgba(172, 210, 237, 1) 20%);
+	/* height: 100%; */
+	height: 100vh; 
 }
 
 header {
 	display: flex;
-	background-color: rgba(255, 255, 255, 0);
+	/* background-color: rgba(255, 255, 255, 0); */
 	justify-content: center;
 	align-items: center;
 	height: 150px;
@@ -21,13 +22,13 @@ header {
 }
 
 .game-box {
-    height: 200px;
-    width: 100px;
-    background-color: bisque;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+	height: 200px;
+	width: 100px;
+	background-color: bisque;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 p {
@@ -41,44 +42,54 @@ p {
 	grid-column-gap: 0px;
 	grid-row-gap: 0px;
 	text-align: center;
-	}
-	
-	.div1 { grid-area: 1 / 1 / 2 / 2; }
-	.div2 { grid-area: 1 / 2 / 2 / 3; }
-
-
-
-button {
-  color: #fff;
-  padding: 15px 25px;
-  background-color: #38D2D2;
-  background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
-  box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25), inset 0px 3px 9px rgba(255, 255, 255, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.6), inset 0px -8px 36px rgba(0, 0, 0, 0.3), inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
-  border-radius: 14px;
-  font-weight: bold;
-  font-size: 16px;
-  border: 0;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  cursor: pointer;
 }
 
-	button:hover {
-		background-color: green;
-	}
+.swap {
+		display: flex;
+		justify-content: center;
+		height: 4em;
+}
 
-	.game-content {
-		margin-top: 60px;
-		width: 40vw;
-	}
+.div1 {
+	grid-area: 1 / 1 / 2 / 2;
+}
+
+.div2 {
+	grid-area: 1 / 2 / 2 / 3;
+}
+
+button {
+	color: #fff;
+	padding: 15px 30px;
+	background-color: #38D2D2;
+	background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
+	box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25), inset 0px 3px 9px rgba(255, 255, 255, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.6), inset 0px -8px 36px rgba(0, 0, 0, 0.3), inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
+	border-radius: 14px;
+	font-weight: bold;
+	font-size: 16px;
+	border: 0;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: green;
+}
+
+.game-content {
+	margin-top: 60px;
+	width: 40vw;
+}
+
 .huvudorange {
 	z-index: -1;
 	visibility: 50%;
 	margin: 20px;
 }
 
-main .start-content{
+main .start-content {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -87,16 +98,19 @@ main .start-content{
 	font-family: 'Nosifer', sans-serif;
 	font-size: 1.4em;
 }
+
 main .start-content #input-name::placeholder {
-    text-align: center;
+	text-align: center;
 }
-main .start-content #input-name{
+
+main .start-content #input-name {
 	padding: 0.5em;
 	margin: 1em;
 	border: 2px solid rgb(16, 16, 16);
 	border-radius: 5px;
 }
-main #error{
+
+main #error {
 	font-family: 'Nosifer', sans-serif;
 	font-size: 0.5em;
 	color: rgb(223, 68, 68);

@@ -70,7 +70,8 @@ let toppListaHeadPPoints
 
 topplistaBtn.addEventListener
 	("click", () => {
-wordDisplay.style.display = 'none';
+		startContent.style.display = 'none'
+		wordDisplay.style.display = 'none';
 
 		// Function för sortering efter score:
 		function sortByScore(a, b) {
@@ -96,7 +97,6 @@ wordDisplay.style.display = 'none';
 		// }
 		// );
 
-		startContent.style.display = 'none'
 		hangman.style.display = "none"
 		if (element === 0) {
 
@@ -239,10 +239,10 @@ wordDisplay.style.display = 'none';
 
 	})
 spelaBtn.addEventListener("click", () => {
+	startContent.style.display = 'none'
 	hangman.style.display = "block"
 	wordDisplay.style.display = 'block';
 	toppListaBack.style.display = "none"
-	startContent.style.display = 'none'
 
 
 })
