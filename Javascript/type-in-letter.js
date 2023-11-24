@@ -1,51 +1,63 @@
+
+import {words} from "./ordlista.js"
+const ordLista = words;
+let inputValue;
+const ordet = document.querySelector(".ordet");
+let ordLängd = 10;
+
+function slumpaOrd() {
+    let tempOrd = ordLängd;
+    let ord;
+    do {
+        ord = ordLista[Math.floor(Math.random() * ordLista.length)];
+    } while (ord.length !== tempOrd);
+
+    ord = ord.toUpperCase();
+    return ord;
+}
+const spelOrd = slumpaOrd();
+let listaBokstav = [];
+
 document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("letter-input").focus();
 });
+let inputElement = document.getElementById('letter-input');
 
-var wordToGuess = "HANGMAN"; 
-var guessedLetters = [];
-
-function updateWordDisplay() {
-  var display = "";
-  for (var i = 0; i < wordToGuess.length; i++) {
-      if (guessedLetters.includes(wordToGuess[i])) {
-          display += wordToGuess[i] + " ";
-      } else {
-          display += "_ ";
-      }
-  }
-  document.getElementById("word-display").textContent = display.trim();
-}
-
-function guessLetter() {
-  var inputElement = document.getElementById('letter-input');
-  var inputValue = inputElement.value.toUpperCase();
-
-  if (inputValue.length === 1 && inputValue.match(/[A-ZÅÄÖ]/)) {
-      if (guessedLetters.includes(inputValue)) {
-          alert("Du har redan gissat på denna bokstaven!");
-      } else {
-          guessedLetters.push(inputValue);
-
-          if (wordToGuess.includes(inputValue)) {
-              document.getElementById("result").textContent = "Bra jobbat!";
-          } else {
-              document.getElementById("result").textContent = "Försök igen!";
-          }
-
-          updateWordDisplay(); 
-          inputElement.value = '';
-      }
-  } else {
-      alert("Gissa på en bokstav!");
-  }
-}
-
-document.getElementById('letter-input').addEventListener('keydown', function (e) {
-  if (e.key === 'Enter') {
-      guessLetter();
-  }
+inputElement.addEventListener('input', function () {
+    inputValue = inputElement.value.toUpperCase();
+    inputElement.value = inputValue;
 });
 
 
-updateWordDisplay();
+document.getElementById('letter-input').addEventListener('keydown', function (e)  {
+	if (e.key === 'Enter') {
+    
+    ordet.innerText = "";
+
+    spelOrd.split("").forEach((correctLetter) => {
+       
+        let bokstav = document.createElement("p");
+
+		if (listaBokstav.includes(correctLetter)) {
+			bokstav.innerText = correctLetter;
+		} else {
+			bokstav.innerText = "_";
+		}
+        ordet.appendChild(bokstav);
+    });
+
+    // Lägg till rätt gissade bokstäver i listan
+    if (spelOrd.includes(inputValue)) {
+        listaBokstav.push(inputValue);
+    }
+    else {
+        // Lägg till felgissade bokstäver i en annan sektion för felgissningar
+        // Exempel: felGissningarSection.appendChild(document.createTextNode(inputValue));
+    }
+	}
+    // Återställ input
+    inputElement.value = "";
+
+    console.log(`Det rätta ordet är ${spelOrd}`);
+});
+

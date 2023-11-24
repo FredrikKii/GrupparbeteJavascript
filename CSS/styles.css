@@ -102,3 +102,10 @@ main #error{
 	color: rgb(223, 68, 68);
 
 }
+.ordet {
+	display: flex;
+	justify-content: center;
+}
+.ordet p {
+	padding: 10px;
+}
