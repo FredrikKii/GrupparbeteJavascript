@@ -108,6 +108,8 @@ main .start-content #input-name {
 	margin: 1em;
 	border: 2px solid rgb(16, 16, 16);
 	border-radius: 5px;
+	background: rgba(172, 210, 237, 1);
+	box-shadow:rgb(16, 16, 16,16); 
 }
 
 main #error {

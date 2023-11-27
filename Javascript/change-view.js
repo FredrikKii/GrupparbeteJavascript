@@ -62,6 +62,8 @@ const startContent = document.querySelector('.start-content');
 const topplistaBtn = document.querySelector(".topplista")
 const hangman = document.querySelector(".game-content")
 const spelaBtn = document.querySelector(".spela")
+const startagain = document.querySelector('.start-again');
+
 let toppListaNr = 0
 let element = 0
 let toppListaBack
@@ -72,6 +74,7 @@ topplistaBtn.addEventListener
 	("click", () => {
 		startContent.style.display = 'none'
 		wordDisplay.style.display = 'none';
+		startagain.style.display = 'none'
 
 		// Function för sortering efter score:
 		function sortByScore(a, b) {
@@ -97,7 +100,7 @@ topplistaBtn.addEventListener
 		// }
 		// );
 
-		hangman.style.display = "none"
+		// hangman.style.display = "none"
 		if (element === 0) {
 
 			toppListaBack = document.createElement("div")
@@ -240,10 +243,10 @@ topplistaBtn.addEventListener
 	})
 spelaBtn.addEventListener("click", () => {
 	startContent.style.display = 'none'
-	hangman.style.display = "block"
+	hangman.style.display = "none"
 	wordDisplay.style.display = 'block';
 	toppListaBack.style.display = "none"
-
+	startagain.style.display = 'none'
 
 })
 

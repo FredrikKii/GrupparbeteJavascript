@@ -4,11 +4,13 @@ const menu = document.querySelector('.parent');
 const hangman = document.querySelector('.game-content');
 const error = document.querySelector('#error');
 const startContent = document.querySelector('.start-content');
+const startagain = document.querySelector('.start-again');
 const wordDisplay = document.querySelector('.type-in-letter');
 
 menu.style.display = 'none';
 hangman.style.display = 'none';
 wordDisplay.style.display = 'none';
+startagain.style.display = 'none'
 
 let input = document.querySelector("#input-name");
 input.addEventListener("keypress", function(event) {
