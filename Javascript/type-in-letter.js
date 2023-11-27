@@ -37,45 +37,74 @@ const spelaOmBtn = document.querySelector(".spela")
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("letter-input").focus();
 });
+console.log(`Det rätta ordet är ${spelOrd}`);
 let inputElement = document.getElementById('letter-input');
+inputElement.focus()
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     document.getElementById("letter-input").focus();
+//   });
+
 
 inputElement.addEventListener('input', function () {
     inputValue = inputElement.value.toUpperCase();
     inputElement.value = inputValue;
 });
+let allaLetters = []
+let correct 
+let points = 0
+let hint = -20
+let bokstav 
+spelOrd.split("").forEach((bokstavlista) => {
+	allaLetters.push(bokstavlista)
+})
 
-document.getElementById('letter-input').addEventListener('keydown', function (e) {
-    if (e.key === 'Enter') {
 
-        ordet.innerText = "";
+inputElement.addEventListener('keydown', function (e)  {
+	if (e.key === 'Enter') {
+	
+    ordet.innerText = "";
+	// Lägg till rätt gissade bokstäver i listan
+	if (spelOrd.includes(inputValue)) {
+		listaBokstav.push(inputValue);
+		correct = true
+	}
+	else {
+		correct = false
+		// Lägg till felgissade bokstäver i en annan sektion för felgissningar
+		// Exempel: felGissningarSection.appendChild(document.createTextNode(inputValue));
+	}
+    spelOrd.split("").forEach((correctLetter) => {
+       
+        let bokstav = document.createElement("p");
 
+		if (listaBokstav.includes(correctLetter)) {
+			bokstav.innerText = correctLetter;
+		} 
+		else {
+			bokstav.innerText = "_";
+		}
+        ordet.appendChild(bokstav);
+    });
 
-        spelOrd.split("").forEach((correctLetter) => {
-
-            let bokstav = document.createElement("p");
-
-            if (listaBokstav.includes(correctLetter)) {
-                bokstav.innerText = correctLetter;
-            } else {
-                bokstav.innerText = "_";
-
-            }
-            ordet.appendChild(bokstav);
-        });
-
-        if (spelOrd.includes(inputValue)) {
-            listaBokstav.push(inputValue);
-        }
-        else {
-            handleFelGissning();
-            // Lägg till felgissade bokstäver i en annan sektion för felgissningar
-            // Exempel: felGissningarSection.appendChild(document.createTextNode(inputValue));
-        }
-    }
+	if(correct){
+		points += 29
+		correct = 0
+	}
+	else{
+		points -= 12
+		correct = 0
+        handleFelGissning();
+	}
+	console.log("din poäng är: ", points, correct);
+}
+    
     // Återställ input
-    inputElement.value = "";
 
+    inputElement.value = "";
+    showPoints.innerText = `${points} p`
     console.log(`Det rätta ordet är ${spelOrd}`);
+
 });
 
 let felGissning = 1;
@@ -182,3 +211,48 @@ document.querySelector('.close').addEventListener('click', function () {
 // 	startagain.style.display = 'none'
 
 // })
+let parent = document.querySelector(".type-in-letter")
+let hintIcon = document.createElement("p")
+hintIcon.innerText = "HINT ( -20p)"
+hintIcon.classList.add("hint")
+parent.appendChild(hintIcon)
+let hintBokstav 
+let visadeLetters = []
+hintIcon.addEventListener("click", () =>{
+    // console.log("cklickat!!!!")
+    points -= 20
+    function slumpabokstav() {
+
+        hintBokstav = allaLetters[Math.floor(Math.random() * allaLetters.length)];
+
+
+        hintBokstav = hintBokstav.toUpperCase();
+        return hintBokstav;
+
+    }
+    let insertBokstav = slumpabokstav()
+
+
+
+    for (let i = 0; i < visadeLetters.length; i++) {
+        while (visadeLetters.includes(insertBokstav)) {
+            console.log("Inte", insertBokstav);
+            insertBokstav = slumpabokstav();
+            console.log("Utan: ", insertBokstav);
+
+            //Kanske göra så att man tar ut de gissade bokstäverna ur listan ist. 
+        }
+    }
+
+    let hurmånga = allaLetters.filter(x => x === insertBokstav)
+    visadeLetters.push(insertBokstav)
+
+    // console.log(hintBokstav);
+    console.log(insertBokstav);
+    console.log(hurmånga)
+})
+
+
+let showPoints = document.createElement("h2")
+showPoints.innerText = points
+parent.append(showPoints)
