@@ -11,6 +11,7 @@ hangman.style.display = 'none';
 wordDisplay.style.display = 'none';
 
 let input = document.querySelector("#input-name");
+input.focus()
 input.addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
     event.preventDefault();

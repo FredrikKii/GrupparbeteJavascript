@@ -238,6 +238,7 @@ topplistaBtn.addEventListener
 
 
 	})
+	
 spelaBtn.addEventListener("click", () => {
 	startContent.style.display = 'none'
 	hangman.style.display = "block"
