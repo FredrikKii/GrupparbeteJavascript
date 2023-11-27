@@ -5,10 +5,15 @@
 }
 
 body {
-	background: rgb(20, 89, 29);
-	background: linear-gradient(0deg, rgba(20, 89, 29, 1) 5%, rgba(153, 170, 56, 1) 10%, rgba(172, 210, 237, 1) 20%);
-	/* height: 100%; */
-	height: 100vh; 
+	background: url('/SVG/Bakgrund.svg');
+	height: 100vh;
+	background-size: cover;
+	margin: 0;
+}
+.swap {
+	display: flex;
+	justify-content: center;
+	height: 4em;
 }
 
 header {
@@ -18,7 +23,22 @@ header {
 	align-items: center;
 	height: 150px;
 	font-family: 'Nosifer', sans-serif;
-	font-size: 1.4em;
+	font-size: 20px;
+    color: #ffffff;
+	letter-spacing: 10PX;
+    text-shadow: 
+				-1px -1px #000000, 
+				 0px 0px 0 rgb(0, 0, 0),
+                 1px 1px 0 rgb(0, 0, 0),
+                 2px 2px 0 rgb(0, 0, 0),
+                 3px 3px 0 rgb(255, 131, 131),
+                 4px 4px 0 rgb(255, 126, 126),
+                 5px 5px 0 rgb(255, 86, 86),
+                 6px 6px 0 rgb(255, 69, 69),
+                 7px 7px  0 rgb(255, 47, 47),
+                 8px 8px 7px rgba(255, 41, 41, 0.78),
+                 8px 8px 1px rgba(255, 32, 32, 0.5),
+                 0px 0px 7px rgba(255, 25, 25, 0.2);
 }
 
 .game-box {
@@ -97,19 +117,28 @@ main .start-content {
 	height: 5em;
 	font-family: 'Nosifer', sans-serif;
 	font-size: 1.4em;
+	
 }
 
 main .start-content #input-name::placeholder {
 	text-align: center;
 }
-
-main .start-content #input-name {
-	padding: 0.5em;
-	margin: 1em;
-	border: 2px solid rgb(16, 16, 16);
-	border-radius: 5px;
-	background: rgba(172, 210, 237, 1);
-	box-shadow:rgb(16, 16, 16,16); 
+main .start-content #input-name{
+	padding: 3px;
+	font-size: 16px;
+	border-width: 6px;
+	border-color: #38D2D2;;
+	background-color: #ffffff;
+	color: #000000;
+	border-style: outset;
+	border-radius: 50px;
+	box-shadow: 0px 0px 20px rgba(11,164,255,.93);
+	text-shadow: 10px 16px 5px rgba(47,199,255,.75);
+	text-align: center;
+	margin: 10px;
+}
+input:focus {
+    outline: none;
 }
 
 main #error {
