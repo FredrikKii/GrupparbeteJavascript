@@ -10,8 +10,8 @@ let felGissningar = []
 let facit = spelOrd.split('')
 console.log(facit);
 
-if((!facit.includes(varElement)) && (!felGissningar.includes(varElement))) {
-	felGissningar.push(varElement)
+if((!facit.includes(inputValue)) && (!felGissningar.includes(varValue))) {
+	felGissningar.push(inputValue)
 }
 
 let felListaDiv = document.getElementById("felLista");
