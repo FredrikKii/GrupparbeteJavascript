@@ -254,6 +254,8 @@ spelaBtn.addEventListener("click", () => {
 	wordDisplay.style.display = 'block';
 	toppListaBack.style.display = "none"
 	startagain.style.display = 'none'
+	ordet.style.display = 'flex'
+
 
 })
 

@@ -31,7 +31,13 @@ const spelaOmBtn = document.querySelector(".spela")
 
 // const stängAv = document.querySelector('.close');
 
-
+let parent = document.querySelector(".type-in-letter")
+let hintIcon = document.createElement("p")
+hintIcon.innerText = "HINT ( -20p)"
+hintIcon.classList.add("hint")
+parent.appendChild(hintIcon)
+let hintBokstav
+let visadeLetters = []
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -51,54 +57,54 @@ inputElement.addEventListener('input', function () {
     inputElement.value = inputValue;
 });
 let allaLetters = []
-let correct 
+let correct
 let points = 0
 let hint = -20
-let bokstav 
+let bokstav
 spelOrd.split("").forEach((bokstavlista) => {
-	allaLetters.push(bokstavlista)
+    allaLetters.push(bokstavlista)
 })
 
 
-inputElement.addEventListener('keydown', function (e)  {
-	if (e.key === 'Enter') {
-	
-    ordet.innerText = "";
-	// Lägg till rätt gissade bokstäver i listan
-	if (spelOrd.includes(inputValue)) {
-		listaBokstav.push(inputValue);
-		correct = true
-	}
-	else {
-		correct = false
-		// Lägg till felgissade bokstäver i en annan sektion för felgissningar
-		// Exempel: felGissningarSection.appendChild(document.createTextNode(inputValue));
-	}
-    spelOrd.split("").forEach((correctLetter) => {
-       
-        let bokstav = document.createElement("p");
+inputElement.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
 
-		if (listaBokstav.includes(correctLetter)) {
-			bokstav.innerText = correctLetter;
-		} 
-		else {
-			bokstav.innerText = "_";
-		}
-        ordet.appendChild(bokstav);
-    });
+        ordet.innerText = "";
+        // Lägg till rätt gissade bokstäver i listan
+        if (spelOrd.includes(inputValue)) {
+            listaBokstav.push(inputValue);
+            correct = true
+        }
+        else {
+            correct = false
+            // Lägg till felgissade bokstäver i en annan sektion för felgissningar
+            // Exempel: felGissningarSection.appendChild(document.createTextNode(inputValue));
+        }
+        spelOrd.split("").forEach((correctLetter) => {
 
-	if(correct){
-		points += 29
-		correct = 0
-	}
-	else{
-		points -= 12
-		correct = 0
-        handleFelGissning();
-	}
-	console.log("din poäng är: ", points, correct);
-}
-    
+            let bokstav = document.createElement("p");
+
+            if (listaBokstav.includes(correctLetter)) {
+                bokstav.innerText = correctLetter;
+            }
+            else {
+                bokstav.innerText = "_";
+            }
+            ordet.appendChild(bokstav);
+        });
+
+        if (correct) {
+            points += 29
+            correct = 0
+        }
+        else {
+            points -= 12
+            correct = 0
+            handleFelGissning();
+        }
+        console.log("din poäng är: ", points, correct);
+    }
+
     // Återställ input
 
     inputElement.value = "";
@@ -108,7 +114,10 @@ inputElement.addEventListener('keydown', function (e)  {
 });
 
 let felGissning = 1;
-function handleFelGissning() {
+spelaOmBtn.addEventListener("click", function () {
+    spelaOm();
+});
+function displayHangman(){
     marken.style.display = 'none';
     scaffold.style.display = 'none';
     benen.style.display = 'none';
@@ -117,12 +126,13 @@ function handleFelGissning() {
     huvud.style.display = 'none';
     huvudorange.style.display = 'none';
     hangman.style.display = 'grid';
-
+}
+function handleFelGissning() {
+    displayHangman();
     if (felGissning === 1) {
         console.log('Visa marken');
         marken.style.display = 'block';
         felGissning++;
-
     }
 
     else if (felGissning === 2) {
@@ -130,8 +140,6 @@ function handleFelGissning() {
         marken.style.display = 'block';
         scaffold.style.display = 'block';
         felGissning++;
-
-
     }
     else if (felGissning === 3) {
         console.log('Visa benen');
@@ -139,7 +147,6 @@ function handleFelGissning() {
         scaffold.style.display = 'block';
         benen.style.display = 'block';
         felGissning++;
-
     }
     else if (felGissning === 4) {
         console.log('Visa kroppen');
@@ -148,7 +155,6 @@ function handleFelGissning() {
         benen.style.display = 'block';
         kropen.style.display = 'block';
         felGissning++;
-
     }
     else if (felGissning === 5) {
         console.log('Visa armen');
@@ -158,7 +164,6 @@ function handleFelGissning() {
         kropen.style.display = 'block';
         armen.style.display = 'block';
         felGissning++;
-
     }
     else if (felGissning === 6) {
         console.log('Visa huvudet');
@@ -169,22 +174,8 @@ function handleFelGissning() {
         armen.style.display = 'block';
         huvud.style.display = 'block';
         felGissning++;
-
     }
-    // else if (felGissning === 7) {
-    //     console.log('Visa huvudet orange');
-    //     marken.style.display = 'block';
-    //     scaffold.style.display = 'block';
-    //     benen.style.display = 'block';
-    //     kropen.style.display = 'block';
-    //     armen.style.display = 'block';
-    //     huvud.style.display = 'block';
-    //     huvudorange.style.display = 'block';
-    //     felGissning++;
-
-    // }
     else {
-
         console.log('Visa huvudet orange');
         marken.style.display = 'block';
         scaffold.style.display = 'block';
@@ -196,29 +187,49 @@ function handleFelGissning() {
         felGissning++;
         inputDisplay.style.display = 'none'
         startagain.style.display = 'block';
-
+        // spelaOmBtn.innerText = 'Spela om';
     }
 }
+
 document.querySelector('.close').addEventListener('click', function () {
     window.location.reload();
 
 });
-// spelaOmBtn.addEventListener("click", () => {
-// 	startContent.style.display = 'none'
-// 	hangman.style.display = "none"
-// 	wordDisplay.style.display = 'block';
-// 	toppListaBack.style.display = "none"
-// 	startagain.style.display = 'none'
 
-// })
-let parent = document.querySelector(".type-in-letter")
-let hintIcon = document.createElement("p")
-hintIcon.innerText = "HINT ( -20p)"
-hintIcon.classList.add("hint")
-parent.appendChild(hintIcon)
-let hintBokstav 
-let visadeLetters = []
-hintIcon.addEventListener("click", () =>{
+function spelaOm() {
+    // Återställ alla relevanta variabler och tillstånd för ett nytt spel
+    displayHangman();
+    inputDisplay.style.display = 'none';
+    startagain.style.display = 'none';
+    spelaOmBtn.innerText = 'Starta om';
+    ordet.innerText = ''
+    // Återställ felGissning-räknaren
+    felGissning = 1;
+
+    // Återställ listan över gissade bokstäver
+    listaBokstav = [];
+
+    // Återställ poängen och uppdatera visningen
+    points = 0;
+    showPoints.innerText = points;
+
+    // Återställ visade bokstäver för hint
+    visadeLetters = [];
+
+    // Uppdatera det rätta ordet
+    
+    // spelOrd = slumpaOrd();
+    const nyttSpelOrd = slumpaOrd();
+    spelOrd = nyttSpelOrd;
+
+    bokstav.innerText = "_";
+    // Uppdatera din hint eller andra relevanta funktioner om det behövs
+
+    // Lägg till andra relevanta återställningar och uppdateringar beroende på ditt behov
+}
+
+
+hintIcon.addEventListener("click", () => {
     // console.log("cklickat!!!!")
     points -= 20
     function slumpabokstav() {
