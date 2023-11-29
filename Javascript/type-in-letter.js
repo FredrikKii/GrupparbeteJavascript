@@ -70,8 +70,9 @@ spelOrd.split("").forEach((bokstavlista) => {
 })
 
 
-inputElement.addEventListener('keydown', function (e) {
-    if (e.key === 'Enter') {
+inputElement.addEventListener('keyup', function (e) {
+    let  letterPattern = /^[a-öA-Ö]$/
+	if (letterPattern.test(e.key)) {
 
         ordet.innerText = "";
         // Lägg till rätt gissade bokstäver i listan
