@@ -8,15 +8,20 @@
 
 let felGissningar = []
 let facit = spelOrd.split('')
-console.log(facit);
+const gameContentSection = document.querySelector('.game-content')
 
-if((!facit.includes(inputValue)) && (!felGissningar.includes(varValue))) {
+function fellista() {
+
+	if((!facit.includes(inputValue)) && (!felGissningar.includes(varValue))) {
 	felGissningar.push(inputValue)
 }
 
 let felListaDiv = document.getElementById("felLista");
-let överStreckad = felGissningar.map(stryk => `<s>${stryk}</s>`)
+let överStrykt = felGissningar.map(abc => `<s>${abc}</s>`)
 
-felListaDiv.innerHTML = överStreckad.join(', ')
+felListaDiv.innerHTML = överStrykt.join(', ')
 
-//<div id="felLista"></div>
+
+gameContentSection.lastChild.innerHTML += överStrykt
+
+}
