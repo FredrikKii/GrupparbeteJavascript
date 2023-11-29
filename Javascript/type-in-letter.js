@@ -1,5 +1,6 @@
 
 import { words } from "./ordlista.js"
+// import { fellista } from "./wrong-letter.js";
 const ordLista = words;
 let inputValue;
 const ordet = document.querySelector(".ordet");
@@ -79,6 +80,7 @@ inputElement.addEventListener('keydown', function (e) {
         }
         else {
             correct = false
+			// fellista(inputValue)
             // Lägg till felgissade bokstäver i en annan sektion för felgissningar
             // Exempel: felGissningarSection.appendChild(document.createTextNode(inputValue));
         }
@@ -150,7 +152,7 @@ function handleFelGissning() {
         scaffold.style.display = 'block';
         benen.style.display = 'block';
         felGissning++;
-        
+
     }
     else if (felGissning === 4) {
         console.log('Visa kroppen');
@@ -211,7 +213,7 @@ function spelaOm() {
     points = 0;
     showPoints.innerText = points;
     visadeLetters = [];
-    spelOrd = slumpaOrd();  
+    spelOrd = slumpaOrd();
 }
 
 hintIcon.addEventListener("click", () => {
@@ -228,7 +230,7 @@ hintIcon.addEventListener("click", () => {
             console.log("Inte", insertBokstav);
             insertBokstav = slumpabokstav();
             console.log("Utan: ", insertBokstav);
-            //Kanske göra så att man tar ut de gissade bokstäverna ur listan ist. 
+            //Kanske göra så att man tar ut de gissade bokstäverna ur listan ist.
         }
     }
 
@@ -242,3 +244,6 @@ hintIcon.addEventListener("click", () => {
 let showPoints = document.createElement("h2")
 showPoints.innerText = points
 parent.append(showPoints)
+
+// export {inputValue}
+// export{spelOrd}
