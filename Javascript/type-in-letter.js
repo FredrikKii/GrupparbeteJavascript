@@ -64,6 +64,7 @@ let correct
 let points = 0
 let hint = -20
 let bokstav
+let gameContentSection = document.querySelector(".felGissingSec")
 spelOrd.split("").forEach((bokstavlista) => {
     allaLetters.push(bokstavlista)
 })
@@ -80,9 +81,10 @@ inputElement.addEventListener('keydown', function (e) {
         }
         else {
             correct = false
-			// fellista(inputValue)
-            // Lägg till felgissade bokstäver i en annan sektion för felgissningar
-            // Exempel: felGissningarSection.appendChild(document.createTextNode(inputValue));
+            let felBokstav = document.createElement("p")
+            felBokstav.innerText = inputValue
+            gameContentSection.append(felBokstav)
+
         }
         spelOrd.split("").forEach((correctLetter) => {
 
@@ -208,6 +210,7 @@ function spelaOm() {
     startagain.style.display = 'none';
     spelaOmBtn.innerText = 'Starta om';
     ordet.innerText = '';
+	gameContentSection.innerHTML = ""
     felGissning = 1;
     listaBokstav = [];
     points = 0;
