@@ -41,9 +41,9 @@ let hintBokstav
 let visadeLetters = []
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("letter-input").focus();
-});
+// document.addEventListener("DOMContentLoaded", function () {
+//     document.getElementById("letter-input").focus();
+// });
 console.log(`Det rätta ordet är ${spelOrd}`);
 
 let inputElement = document.querySelector('#letter-input');
@@ -68,12 +68,12 @@ let gameContentSection = document.querySelector(".felGissingSec")
 spelOrd.split("").forEach((bokstavlista) => {
     allaLetters.push(bokstavlista)
 })
-
-
+let guessedLetters = []
+// fixa så man inte "kan" klicka i samma bokstav(alltså att den inte visas)
 inputElement.addEventListener('keyup', function (e) {
     let  letterPattern = /^[a-öA-Ö]$/
-	if (letterPattern.test(e.key)) {
-
+	if (letterPattern.test(e.key) && !guessedLetters.includes(e.key)) {
+		guessedLetters.push(e.key)
         ordet.innerText = "";
         // Lägg till rätt gissade bokstäver i listan
         if (spelOrd.includes(inputValue)) {
@@ -202,7 +202,7 @@ function handleFelGissning() {
 
 document.querySelector('.exit').addEventListener('click', function () {
     // window.location.reload();
-     window.close();
+    //  window.close();
 });
 
 function spelaOm() {
