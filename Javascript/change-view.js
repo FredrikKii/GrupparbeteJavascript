@@ -249,11 +249,11 @@ topplistaBtn.addEventListener
 	})
 	
 spelaBtn.addEventListener("click", () => {
-	startContent.style.display = 'none'
-	hangman.style.display = "none"
+	startContent.style.display = 'none';
+	hangman.style.display = 'none';
 	wordDisplay.style.display = 'block';
-	toppListaBack.style.display = "none"
-	startagain.style.display = 'none'
+	toppListaBack.style.display = 'none';
+	startagain.style.display = 'none';
 	ordet.style.display = 'flex'
 
 

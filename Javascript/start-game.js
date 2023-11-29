@@ -14,20 +14,22 @@ startagain.style.display = 'none'
 
 let input = document.querySelector("#input-name");
 input.focus()
-input.addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    document.querySelector("#start-game").click();
-  }
-});
 
+document.addEventListener("click", function () {
+    input.focus();
+});
+input.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.querySelector("#start-game").click();
+    }
+});
 
 startGameBtn.addEventListener('click', () => {
     const inputValue = inputName.value.trim();
     const onlyLettersRegex = /^[A-Za-zÖÄÅöäå]+$/;
     if (inputValue === "") {
         error.innerText = 'Skriv ditt namn tack.';
-        
     }
     else if (!onlyLettersRegex.test(inputValue)) {
         error.innerText = "Ange endast bokstäver i ditt namn.";
@@ -40,7 +42,6 @@ startGameBtn.addEventListener('click', () => {
             const userInfo = JSON.parse(localStorage.getItem('users')) || [];
             userInfo.push({ name: inputValue });
             localStorage.setItem('users', JSON.stringify(userInfo));
-            
             hangman.style.display = 'grid';
             menu.style.display = 'grid';
             startContent.innerHTML = "<h3>Välkommen</h3>" + inputValue;
@@ -51,8 +52,3 @@ startGameBtn.addEventListener('click', () => {
         console.log(localStorage);
     }
 });
-        // inputName.addEventListener("keypress", function(event) {
-        //     if (event.key === "Enter") {
-        //     document.getElementById("myBtn").click();
-        //     }
-        //     });

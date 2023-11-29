@@ -15,7 +15,7 @@ function slumpaOrd() {
     ord = ord.toUpperCase();
     return ord;
 }
-const spelOrd = slumpaOrd();
+let spelOrd = slumpaOrd();
 let listaBokstav = [];
 const hangman = document.querySelector('.game-content');
 const marken = document.querySelector('#ground');
@@ -29,7 +29,7 @@ const inputDisplay = document.querySelector('.type-in-letter')
 const startagain = document.querySelector('.start-again');
 const spelaOmBtn = document.querySelector(".spela")
 
-// const stängAv = document.querySelector('.close');
+// const stängAv = document.querySelector('.exit');
 
 let parent = document.querySelector(".type-in-letter")
 let hintIcon = document.createElement("p")
@@ -44,12 +44,14 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("letter-input").focus();
 });
 console.log(`Det rätta ordet är ${spelOrd}`);
-let inputElement = document.getElementById('letter-input');
+
+let inputElement = document.querySelector('#letter-input');
 inputElement.focus()
 
-// document.addEventListener("DOMContentLoaded", function() {
-//     document.getElementById("letter-input").focus();
-//   });
+// Lägg till klickhändelse på dokumentet för att fokusera på input när någon klickar var som helst på sidan
+document.addEventListener("click", function () {
+    inputElement.focus()
+});
 
 
 inputElement.addEventListener('input', function () {
@@ -117,7 +119,8 @@ let felGissning = 1;
 spelaOmBtn.addEventListener("click", function () {
     spelaOm();
 });
-function displayHangman(){
+function displayHangman() {
+    // marken.classList.add = "alt";
     marken.style.display = 'none';
     scaffold.style.display = 'none';
     benen.style.display = 'none';
@@ -147,6 +150,7 @@ function handleFelGissning() {
         scaffold.style.display = 'block';
         benen.style.display = 'block';
         felGissning++;
+        
     }
     else if (felGissning === 4) {
         console.log('Visa kroppen');
@@ -163,6 +167,7 @@ function handleFelGissning() {
         benen.style.display = 'block';
         kropen.style.display = 'block';
         armen.style.display = 'block';
+
         felGissning++;
     }
     else if (felGissning === 6) {
@@ -187,82 +192,52 @@ function handleFelGissning() {
         felGissning++;
         inputDisplay.style.display = 'none'
         startagain.style.display = 'block';
-        // spelaOmBtn.innerText = 'Spela om';
     }
 }
 
-document.querySelector('.close').addEventListener('click', function () {
-    window.location.reload();
-
+document.querySelector('.exit').addEventListener('click', function () {
+    // window.location.reload();
+     window.close();
 });
 
 function spelaOm() {
-    // Återställ alla relevanta variabler och tillstånd för ett nytt spel
     displayHangman();
     inputDisplay.style.display = 'none';
     startagain.style.display = 'none';
     spelaOmBtn.innerText = 'Starta om';
-    ordet.innerText = ''
-    // Återställ felGissning-räknaren
+    ordet.innerText = '';
     felGissning = 1;
-
-    // Återställ listan över gissade bokstäver
     listaBokstav = [];
-
-    // Återställ poängen och uppdatera visningen
     points = 0;
     showPoints.innerText = points;
-
-    // Återställ visade bokstäver för hint
     visadeLetters = [];
-
-    // Uppdatera det rätta ordet
-    
-    // spelOrd = slumpaOrd();
-    const nyttSpelOrd = slumpaOrd();
-    spelOrd = nyttSpelOrd;
-
-    bokstav.innerText = "_";
-    // Uppdatera din hint eller andra relevanta funktioner om det behövs
-
-    // Lägg till andra relevanta återställningar och uppdateringar beroende på ditt behov
+    spelOrd = slumpaOrd();  
 }
-
 
 hintIcon.addEventListener("click", () => {
     // console.log("cklickat!!!!")
     points -= 20
     function slumpabokstav() {
-
         hintBokstav = allaLetters[Math.floor(Math.random() * allaLetters.length)];
-
-
         hintBokstav = hintBokstav.toUpperCase();
         return hintBokstav;
-
     }
     let insertBokstav = slumpabokstav()
-
-
-
     for (let i = 0; i < visadeLetters.length; i++) {
         while (visadeLetters.includes(insertBokstav)) {
             console.log("Inte", insertBokstav);
             insertBokstav = slumpabokstav();
             console.log("Utan: ", insertBokstav);
-
             //Kanske göra så att man tar ut de gissade bokstäverna ur listan ist. 
         }
     }
 
     let hurmånga = allaLetters.filter(x => x === insertBokstav)
     visadeLetters.push(insertBokstav)
-
     // console.log(hintBokstav);
     console.log(insertBokstav);
     console.log(hurmånga)
 })
-
 
 let showPoints = document.createElement("h2")
 showPoints.innerText = points
