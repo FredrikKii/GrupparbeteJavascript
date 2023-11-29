@@ -164,10 +164,19 @@ main #error {
 .felGissingSec {
 	text-decoration: line-through;
 	display: flex;
-	justify-content: end;
+	justify-content: center;
 	padding-right: 3em;
 	
 }
 .felGissingSec p {
+	margin: 0.5em;
+}
+.game-over{
+	display: block;
+	text-align: center;
+	margin: 1em;
+}
+
+.game-over > *{
 	margin: 0.5em;
 }

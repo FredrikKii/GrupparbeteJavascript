@@ -1,5 +1,6 @@
 
 import { words } from "./ordlista.js"
+import { gameresults, gameWin, gameover } from "./win-lose.js";
 // import { fellista } from "./wrong-letter.js";
 const ordLista = words;
 let inputValue;
@@ -71,9 +72,9 @@ spelOrd.split("").forEach((bokstavlista) => {
 let guessedLetters = []
 // fixa så man inte "kan" klicka i samma bokstav(alltså att den inte visas)
 inputElement.addEventListener('keyup', function (e) {
-    let  letterPattern = /^[a-öA-Ö]$/
-	if (letterPattern.test(e.key) && !guessedLetters.includes(e.key)) {
-		guessedLetters.push(e.key)
+    let letterPattern = /^[a-öA-Ö]$/
+    if (letterPattern.test(e.key) && !guessedLetters.includes(e.key)) {
+        guessedLetters.push(e.key)
         ordet.innerText = "";
         // Lägg till rätt gissade bokstäver i listan
         if (spelOrd.includes(inputValue)) {
@@ -123,8 +124,9 @@ inputElement.addEventListener('keyup', function (e) {
 let felGissning = 1;
 spelaOmBtn.addEventListener("click", function () {
     spelaOm();
+
 });
-function displayHangman() {
+export function displayHangman() {
     // marken.classList.add = "alt";
     marken.style.display = 'none';
     scaffold.style.display = 'none';
@@ -185,7 +187,7 @@ function handleFelGissning() {
         huvud.style.display = 'block';
         felGissning++;
     }
-    else {
+    else if (felGissning === 7) {
         console.log('Visa huvudet orange');
         marken.style.display = 'block';
         scaffold.style.display = 'block';
@@ -195,8 +197,28 @@ function handleFelGissning() {
         huvud.style.display = 'block';
         huvudorange.style.display = 'block';
         felGissning++;
-        inputDisplay.style.display = 'none'
         startagain.style.display = 'block';
+        gameresults.style.display = 'block';
+        gameover()
+
+        // inputDisplay.style.display = 'none'
+    }
+    else {
+        // console.log('Visa huvudet orange');
+        // marken.style.display = 'block';
+        // scaffold.style.display = 'block';
+        // benen.style.display = 'block';
+        // kropen.style.display = 'block';
+        // armen.style.display = 'block';
+        // huvud.style.display = 'block';
+        // huvudorange.style.display = 'block';
+        // felGissning++;
+        // startagain.style.display = 'block';
+        // gameWin()
+        gameWin();
+        console.log('Du vann!!');
+
+
     }
 }
 
@@ -207,12 +229,15 @@ document.querySelector('.exit').addEventListener('click', function () {
 
 function spelaOm() {
     displayHangman();
-    inputDisplay.style.display = 'none';
+    gameresults.style.display = 'none';
+    // inputDisplay.style.display = 'none';
     startagain.style.display = 'none';
+    gameContentSection.style.display = 'flex';
+    ordet.style.display = 'flex';
     spelaOmBtn.innerText = 'Starta om';
     ordet.innerText = '';
-	gameContentSection.innerHTML = ""
-	guessedLetters = []
+    gameContentSection.innerHTML = ""
+    guessedLetters = []
     felGissning = 1;
     listaBokstav = [];
     points = 0;
@@ -251,4 +276,4 @@ showPoints.innerText = points
 parent.append(showPoints)
 
 // export {inputValue}
-// export{spelOrd}
+export { spelOrd, points, guessedLetters, gameContentSection, ordet }

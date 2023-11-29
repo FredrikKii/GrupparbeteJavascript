@@ -57,6 +57,7 @@ let userInfo = [
 		date: "23-11-04"
 	},
 ]
+
 const wordDisplay = document.querySelector('.type-in-letter');
 const startContent = document.querySelector('.start-content');
 const topplistaBtn = document.querySelector(".topplista")
@@ -79,8 +80,8 @@ topplistaBtn.addEventListener
 		startagain.style.display = 'none'
 		hangman.style.display = 'none'
 		ordet.style.display = 'none'
-		
-		
+
+
 
 		// Function för sortering efter score:
 		function sortByScore(a, b) {
@@ -244,10 +245,8 @@ topplistaBtn.addEventListener
 				toppListaNr.appendChild(toppListItems);
 			}
 		});
-
-
 	})
-	
+
 spelaBtn.addEventListener("click", () => {
 	startContent.style.display = 'none';
 	hangman.style.display = 'none';
@@ -255,7 +254,5 @@ spelaBtn.addEventListener("click", () => {
 	toppListaBack.style.display = 'none';
 	startagain.style.display = 'none';
 	ordet.style.display = 'flex'
-
-
 })
 
