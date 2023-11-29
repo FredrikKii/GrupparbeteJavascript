@@ -212,6 +212,7 @@ function spelaOm() {
     spelaOmBtn.innerText = 'Starta om';
     ordet.innerText = '';
 	gameContentSection.innerHTML = ""
+	guessedLetters = []
     felGissning = 1;
     listaBokstav = [];
     points = 0;
