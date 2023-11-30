@@ -33,6 +33,7 @@ const spelaOmBtn = document.querySelector(".spela")
 
 // const stängAv = document.querySelector('.exit');
 
+let showPoints = document.createElement("h2")
 let parent = document.querySelector(".type-in-letter")
 let hintIcon = document.createElement("p")
 hintIcon.innerText = "HINT ( -20p)"
@@ -69,11 +70,24 @@ let gameContentSection = document.querySelector(".felGissingSec")
 spelOrd.split("").forEach((bokstavlista) => {
     allaLetters.push(bokstavlista)
 })
+let guessesMade = 0;
 let guessedLetters = []
+function checkWin() {
+    for (let i = 0; i < spelOrd.length; i++) {
+        if (!listaBokstav.includes(spelOrd[i])) {
+            return false; // Om någon bokstav saknas har spelaren inte vunnit än
+        }
+    }
+    return true; // Alla bokstäver finns, spelaren har vunnit
+}
+
 // fixa så man inte "kan" klicka i samma bokstav(alltså att den inte visas)
 inputElement.addEventListener('keyup', function (e) {
     let letterPattern = /^[a-öA-Ö]$/
     if (letterPattern.test(e.key) && !guessedLetters.includes(e.key)) {
+        guessesMade++
+        console.log(`antal gissning ${guessesMade}`);
+
         guessedLetters.push(e.key)
         ordet.innerText = "";
         // Lägg till rätt gissade bokstäver i listan
@@ -94,6 +108,7 @@ inputElement.addEventListener('keyup', function (e) {
 
             if (listaBokstav.includes(correctLetter)) {
                 bokstav.innerText = correctLetter;
+
             }
             else {
                 bokstav.innerText = "_";
@@ -111,6 +126,11 @@ inputElement.addEventListener('keyup', function (e) {
             handleFelGissning();
         }
         console.log("din poäng är: ", points, correct);
+        // Kontrollera om spelaren har vunnit efter varje korrekt gissning
+        if (checkWin()) {
+            console.log('Du har vunnit!');
+            gameWin();
+        }
     }
 
     // Återställ input
@@ -127,7 +147,6 @@ spelaOmBtn.addEventListener("click", function () {
 
 });
 export function displayHangman() {
-    // marken.classList.add = "alt";
     marken.style.display = 'none';
     scaffold.style.display = 'none';
     benen.style.display = 'none';
@@ -137,47 +156,41 @@ export function displayHangman() {
     huvudorange.style.display = 'none';
     hangman.style.display = 'grid';
 }
+
 function handleFelGissning() {
     displayHangman();
+
     if (felGissning === 1) {
         console.log('Visa marken');
         marken.style.display = 'block';
         felGissning++;
-    }
-
-    else if (felGissning === 2) {
+    } else if (felGissning === 2) {
         console.log('Visa scaffold');
         marken.style.display = 'block';
         scaffold.style.display = 'block';
         felGissning++;
-    }
-    else if (felGissning === 3) {
+    } else if (felGissning === 3) {
         console.log('Visa benen');
         marken.style.display = 'block';
         scaffold.style.display = 'block';
         benen.style.display = 'block';
         felGissning++;
-
-    }
-    else if (felGissning === 4) {
+    } else if (felGissning === 4) {
         console.log('Visa kroppen');
         marken.style.display = 'block';
         scaffold.style.display = 'block';
         benen.style.display = 'block';
         kropen.style.display = 'block';
         felGissning++;
-    }
-    else if (felGissning === 5) {
+    } else if (felGissning === 5) {
         console.log('Visa armen');
         marken.style.display = 'block';
         scaffold.style.display = 'block';
         benen.style.display = 'block';
         kropen.style.display = 'block';
         armen.style.display = 'block';
-
         felGissning++;
-    }
-    else if (felGissning === 6) {
+    } else if (felGissning === 6) {
         console.log('Visa huvudet');
         marken.style.display = 'block';
         scaffold.style.display = 'block';
@@ -186,8 +199,7 @@ function handleFelGissning() {
         armen.style.display = 'block';
         huvud.style.display = 'block';
         felGissning++;
-    }
-    else if (felGissning === 7) {
+    } else {
         console.log('Visa huvudet orange');
         marken.style.display = 'block';
         scaffold.style.display = 'block';
@@ -198,34 +210,17 @@ function handleFelGissning() {
         huvudorange.style.display = 'block';
         felGissning++;
         startagain.style.display = 'block';
-        gameresults.style.display = 'block';
-        gameover()
-
-        // inputDisplay.style.display = 'none'
+        gameover();
     }
-    else {
-        // console.log('Visa huvudet orange');
-        // marken.style.display = 'block';
-        // scaffold.style.display = 'block';
-        // benen.style.display = 'block';
-        // kropen.style.display = 'block';
-        // armen.style.display = 'block';
-        // huvud.style.display = 'block';
-        // huvudorange.style.display = 'block';
-        // felGissning++;
-        // startagain.style.display = 'block';
-        // gameWin()
-        gameWin();
-        console.log('Du vann!!');
 
-
-    }
 }
 
-document.querySelector('.exit').addEventListener('click', function () {
-    // window.location.reload();
-    //  window.close();
-});
+
+
+// document.querySelector('.exit').addEventListener('click', function () {
+//     // window.location.reload();
+//     //  window.close();
+// });
 
 function spelaOm() {
     displayHangman();
@@ -243,6 +238,8 @@ function spelaOm() {
     points = 0;
     showPoints.innerText = points;
     visadeLetters = [];
+    guessesMade = 0;
+
     spelOrd = slumpaOrd();
 }
 
@@ -271,9 +268,8 @@ hintIcon.addEventListener("click", () => {
     console.log(hurmånga)
 })
 
-let showPoints = document.createElement("h2")
 showPoints.innerText = points
 parent.append(showPoints)
 
 // export {inputValue}
-export { spelOrd, points, guessedLetters, gameContentSection, ordet }
+export { spelOrd, points, guessedLetters, gameContentSection, ordet, guessesMade }
