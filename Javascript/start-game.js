@@ -24,31 +24,34 @@ input.addEventListener("keypress", function (event) {
         document.querySelector("#start-game").click();
     }
 });
-
+let storedUserData
 startGameBtn.addEventListener('click', () => {
-    const inputValue = inputName.value.trim();
-    const onlyLettersRegex = /^[A-Za-zÖÄÅöäå]+$/;
-    if (inputValue === "") {
+	let userName = inputName.value.trim();
+	
+    let onlyLettersRegex = /^[A-Za-zÖÄÅöäå]+$/;
+
+    if (userName === "") {
         error.innerText = 'Skriv ditt namn tack.';
     }
-    else if (!onlyLettersRegex.test(inputValue)) {
+    else if (!onlyLettersRegex.test(userName)) {
         error.innerText = "Ange endast bokstäver i ditt namn.";
     }
-    else if (inputValue.length > 12) {
+    else if (userName.length > 12) {
         error.innerText = "Namnet får inte vara längre än 12 bokstäver.";
     }
     else {
         try {
-            const userInfo = JSON.parse(localStorage.getItem('users')) || [];
-            userInfo.push({ name: inputValue });
-            localStorage.setItem('users', JSON.stringify(userInfo));
+            localStorage.setItem('users', JSON.stringify(userName));
+			console.log(userName)
+			
             hangman.style.display = 'grid';
             menu.style.display = 'grid';
-            startContent.innerHTML = "<h3>Välkommen</h3>" + inputValue;
+            startContent.innerHTML = "<h3>Välkommen</h3>" + userName;
             console.log(localStorage);
         } catch (error) {
             console.error("Ett fel uppstod:", error);
         }
-        console.log(localStorage);
+        // console.log(localStorage, userInfo);
     }
 });
+export {storedUserData}
