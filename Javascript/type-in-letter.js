@@ -4,10 +4,10 @@ import { words } from "./ordlista.js"
 const ordLista = words;
 let inputValue;
 const ordet = document.querySelector(".ordet");
-let ordLängd = 10;
+let wordlength = 10;
 
 function slumpaOrd() {
-    let tempOrd = ordLängd;
+    let tempOrd = wordlength;
     let ord;
     do {
         ord = ordLista[Math.floor(Math.random() * ordLista.length)];
@@ -29,6 +29,8 @@ const huvudorange = document.querySelector('.huvudorange');
 const inputDisplay = document.querySelector('.type-in-letter')
 const startagain = document.querySelector('.start-again');
 const spelaOmBtn = document.querySelector(".spela")
+let easy = document.querySelector(".easy")
+let hard = document.querySelector(".hard")
 
 // const stängAv = document.querySelector('.exit');
 
@@ -40,6 +42,20 @@ parent.appendChild(hintIcon)
 let hintBokstav
 let visadeLetters = []
 
+easy.addEventListener("click", () => {
+	wordlength = 10
+	console.log("clickat");
+	spelOrd = slumpaOrd()
+	console.log(spelOrd);
+	
+})
+hard.addEventListener("click", () => {
+	wordlength = 5
+	console.log("clickat");
+	spelOrd = slumpaOrd()
+	console.log(spelOrd);
+
+})
 
 // document.addEventListener("DOMContentLoaded", function () {
 //     document.getElementById("letter-input").focus();
