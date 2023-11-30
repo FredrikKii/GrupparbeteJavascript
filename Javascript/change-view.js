@@ -102,14 +102,8 @@ topplistaBtn.addEventListener
 				scorelength.innerText = "ordlängd: " + userInfo[i].wordLegnth
 				scoreLoss.innerText = userInfo[i].loss
 
-				toppListItems.appendChild(scoreItem)
-				toppListItems.appendChild(scoreDate)
-				toppListItems.appendChild(scoreTime)
-				toppListItems.appendChild(scoreguess)
-				toppListItems.appendChild(scorelength)
-				toppListItems.appendChild(scoreLoss)
-				toppListaNr.appendChild(toppListItems)
-
+			
+				addElementsBackInToppList()
 			}
 
 			toppListaBack.appendChild(toppListaNr)
