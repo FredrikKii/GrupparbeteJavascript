@@ -44,7 +44,7 @@ export function gameover() {
 			score: points,
 			date: new Date().toLocaleDateString() + ", " + new Date().toLocaleTimeString(),
 			// time: new Date().toLocaleTimeString(),
-			loss: "förlorade", 
+			loss: "Förlorade", 
 			guesses: guessesMade,
 			wordLegnth: LocalSWordLength
 		};
