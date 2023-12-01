@@ -94,7 +94,7 @@ function checkWin() {
 
 // fixa så man inte "kan" klicka i samma bokstav(alltså att den inte visas)
 inputElement.addEventListener('keyup', function (e) {
-    let letterPattern = /^[a-öA-Ö]$/
+    let letterPattern = /^[A-Za-zÖÄÅöäå]+$/;
     if (letterPattern.test(e.key) && !guessedLetters.includes(e.key)) {
         guessesMade++
         console.log(`antal gissning ${guessesMade}`);
