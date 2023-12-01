@@ -64,6 +64,7 @@ easy.addEventListener("click", () => {
 	wordlength = 10
 	console.log("clickat");
 	console.log(spelOrd);
+	spelOrd = slumpaOrd()
 	LocalSWordLength = 10
 	spelOrd.split("").forEach((correctLetter) => {    
 		let bokstav = document.createElement("p");
