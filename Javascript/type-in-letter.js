@@ -46,6 +46,7 @@ let spelaOmBtn = document.querySelector(".spela")
 let easy = document.querySelector(".easy")
 let hard = document.querySelector(".hard")
 
+
 // const stängAv = document.querySelector('.exit');
 
 let showPoints = document.createElement("h2")
@@ -56,7 +57,7 @@ hintIcon.classList.add("hint")
 parent.appendChild(hintIcon)
 let hintBokstav
 let visadeLetters = []
-
+let LocalSWordLength = 10 
 easy.addEventListener("click", () => {
     wordDisplay.style.display = 'block'
 	difficulty.style.display = 'none'
@@ -64,7 +65,9 @@ easy.addEventListener("click", () => {
 	console.log("clickat");
 	spelOrd = slumpaOrd()
 	console.log(spelOrd);
-	
+	easy.classList.remove("blue")
+	hard.classList.remove("green")
+	LocalSWordLength = 10
 })
 hard.addEventListener("click", () => {
     wordDisplay.style.display = 'block'
@@ -73,7 +76,9 @@ hard.addEventListener("click", () => {
 	console.log("clickat");
 	spelOrd = slumpaOrd()
 	console.log(spelOrd);
-
+	easy.classList.add("blue")
+	hard.classList.add("green")
+	LocalSWordLength = 5
 })
 
 // document.addEventListener("DOMContentLoaded", function () {
@@ -245,24 +250,7 @@ function handleFelGissning() {
         felGissning++;
         startagain.style.display = 'block';
         gameover();
-		try {
-        	
 		
-			let userObj = {
-				user: JSON.parse(localStorage.getItem('users')),
-				score: points,
-				date: new Date().toLocaleDateString() + "Kl: " + new Date().toLocaleTimeString(),
-				// time: new Date().toLocaleTimeString(),
-				loss: "förlorade", 
-				guesses: 12,
-				wordLegnth: "10"
-			};
-			saveUserToLocalStorage(userObj)
-			userInfo.push(userObj)
-            console.log(localStorage, userInfo);
-        } catch (error) {
-            console.error("Ett fel uppstod:", error);
-        }
     }
 
 }
@@ -324,4 +312,4 @@ showPoints.innerText = points
 parent.append(showPoints)
 
 // export {inputValue}
-export { spelOrd, points, guessedLetters, gameContentSection, ordet, guessesMade, userInfo }
+export { spelOrd, points, guessedLetters, gameContentSection, ordet, guessesMade, userInfo, LocalSWordLength}

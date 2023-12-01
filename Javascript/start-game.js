@@ -1,3 +1,4 @@
+
 const inputName = document.querySelector('#input-name');
 const startGameBtn = document.querySelector('#start-game');
 const menu = document.querySelector('.parent');
@@ -9,10 +10,9 @@ const difficulty = document.querySelector('.difficultySec');
 const wordDisplay = document.querySelector('.type-in-letter');
 // const lastresults = document.querySelector('#game-win');
 // lastresults.classList.remove('game-win');
-
 const gameWinElement = document.querySelector('#game-win');
 gameWinElement.classList.remove('game-win');
-
+difficulty.style.display ="none"
 
 menu.style.display = 'none';
 hangman.style.display = 'none';
@@ -35,7 +35,7 @@ input.addEventListener("keypress", function (event) {
 let storedUserData
 startGameBtn.addEventListener('click', () => {
 	let userName = inputName.value.trim();
-	
+	difficulty.style.display = "block"
     let onlyLettersRegex = /^[A-Za-zÖÄÅöäå]+$/;
 
     if (userName === "") {
