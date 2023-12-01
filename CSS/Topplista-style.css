@@ -9,6 +9,7 @@
 	font-size: 20px;
 	/* list-style: none; */
 }
+
 .back-style-list h1 {
 	font-size: 30px;
 	text-align: center;
@@ -22,7 +23,7 @@
 	padding: 8px 8px 0 8px;
 	border-bottom: 2px solid gray;
 	display: grid;
-	grid-template-columns: repeat(4, 1fr); 
+	grid-template-columns: repeat(3, 1fr); 
 	 /* display: flex; */
 
 }
@@ -32,7 +33,7 @@
 } */
 .div-header {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	margin: 0.4em;
 	gap: 2.5em;
 }

@@ -213,8 +213,8 @@ function handleFelGissning() {
 			let userObj = {
 				user: JSON.parse(localStorage.getItem('users')),
 				score: points,
-				date: new Date().toLocaleDateString(),
-				time: new Date().toLocaleTimeString(),
+				date: new Date().toLocaleDateString() + "Kl: " + new Date().toLocaleTimeString(),
+				// time: new Date().toLocaleTimeString(),
 				loss: "förlorade", 
 				guesses: 12,
 				wordLegnth: "10"

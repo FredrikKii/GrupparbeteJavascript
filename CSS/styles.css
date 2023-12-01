@@ -157,7 +157,9 @@ main #error {
 	flex-direction: row;
 	justify-content: center;
 }
-
+.ordet.alt {
+	display: none;
+}
 .ordet p {
 	padding: 10px;
 }

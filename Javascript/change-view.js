@@ -72,12 +72,12 @@ topplistaBtn.addEventListener
 					toppListaHeadDiv.appendChild(toppListaHeadP)
 
 				}
-				else if (p === 3){
-					toppListaHeadP = document.createElement("p")
-					toppListaHeadPTime = toppListaHeadP
-					toppListaHeadP.innerText = "Tid"
-					toppListaHeadDiv.appendChild(toppListaHeadP)
-				}
+				// else if (p === 3){
+				// 	toppListaHeadP = document.createElement("p")
+				// 	toppListaHeadPTime = toppListaHeadP
+				// 	toppListaHeadP.innerText = "Tid"
+				// 	toppListaHeadDiv.appendChild(toppListaHeadP)
+				// }
 
 				toppListaBack.appendChild(toppListaHeadh1)
 				toppListaBack.appendChild(toppListaHeadDiv)
@@ -97,7 +97,7 @@ topplistaBtn.addEventListener
 				toppListItems.innerText = userInfo[i].user
 				scoreItem.innerText = userInfo[i].score
 				scoreDate.innerText = userInfo[i].date
-				scoreTime.innerText = userInfo[i].time
+				// scoreTime.innerText = userInfo[i].time
 				scoreguess.innerText = "Antal gissningar: " + userInfo[i].guesses
 				scorelength.innerText = "ordlängd: " + userInfo[i].wordLegnth
 				scoreLoss.innerText = userInfo[i].loss
@@ -128,7 +128,7 @@ topplistaBtn.addEventListener
 				toppListItems.innerText = sortedScore[i].user;
 				scoreItem.innerText = sortedScore[i].score;
 				scoreDate.innerText = sortedScore[i].date;
-				scoreTime.innerText = sortedScore[i].time;
+				// scoreTime.innerText = sortedScore[i].time;
 				scoreguess.innerText = "Antal gissningar: " + sortedScore[i].guesses
 				scorelength.innerText = "ordlängd: " + sortedScore[i].wordLegnth
 				scoreLoss.innerText = sortedScore[i].loss
@@ -156,7 +156,7 @@ topplistaBtn.addEventListener
 				toppListItems.innerText = sortedDate[i].user;
 				scoreItem.innerText = sortedDate[i].score;
 				scoreDate.innerText = sortedDate[i].date;
-				scoreTime.innerText = sortedDate[i].time;
+				// scoreTime.innerText = sortedDate[i].time;
 				scoreguess.innerText = "Antal gissningar: " + sortedDate[i].guesses
 				scorelength.innerText = "ordlängd: " + sortedDate[i].wordLegnth
 				scoreLoss.innerText = sortedDate[i].loss
@@ -173,10 +173,11 @@ spelaBtn.addEventListener("click", () => {
 	startContent.style.display = 'none';
 	hangman.style.display = 'none';
 	wordDisplay.style.display = 'block';
-	toppListaBack.style.display = 'none';
 	startagain.style.display = 'none';
 	ordet.style.display = 'flex'
-
+	if (toppListaBack) {
+		toppListaBack.style.display = 'none';
+	}
 
 })
 
@@ -192,7 +193,7 @@ function remakeToppList() {
 function addElementsBackInToppList () {
 	toppListItems.appendChild(scoreItem);
 	toppListItems.appendChild(scoreDate);
-	toppListItems.appendChild(scoreTime)
+	// toppListItems.appendChild(scoreTime)
 	toppListItems.appendChild(scoreguess)
 	toppListItems.appendChild(scorelength)
 	toppListItems.appendChild(scoreLoss)
