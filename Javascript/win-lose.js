@@ -1,5 +1,5 @@
 import { spelOrd, points, guessedLetters, gameContentSection,
-    ordet, guessesMade } from "./type-in-letter.js";
+    ordet, guessesMade, displayHangman } from "./type-in-letter.js";
 
 const startagain = document.querySelector('.start-again');
 const gameresults = document.querySelector(".game-over");
@@ -16,6 +16,7 @@ const tittel = document.createElement('h1');
 export function gameover() {
 
     gameWinDiv.classList.remove('gameWin');
+    gameWinDiv.classList.add('gameLose');
     inputDisplay.style.display = 'none'
     gameContentSection.style.display = 'none'
     // ordet.style.display = 'none'
@@ -26,12 +27,15 @@ export function gameover() {
     // felBokstav.innerText = `Din gissning: ${guessedLetters}.`;
     felBokstav.innerText = `Ditt antal gissningar: ${guessesMade}.`;
     // felBokstav.innerText = `Din gissning var: ${guessedLetters.join(', ').toUpperCase()}.`;
+    gameWinDiv.classList.add('gameLose'); 
+    gameresults.appendChild(gameWinDiv);
 
     tittel.innerText = 'Game over';
     gameresults.appendChild(tittel);
     gameresults.appendChild(poäng);
     gameresults.appendChild(ord);
     gameresults.appendChild(felBokstav);
+    displayHangman();
 }
 
 export function gameWin() {
