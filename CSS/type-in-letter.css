@@ -9,8 +9,8 @@ label {
 }
 
 input {
-    padding: 8px;
-    font-size: 16px;
+    padding: 5px;
+    font-size: 10px;
 }
 
 
@@ -30,7 +30,7 @@ input {
     }
     
     .input-field { 
-        font-size: 25px;
+        font-size: 20px;
         animation: blink-caret 0.75s step-end infinite;
         border: none;
         outline: none;

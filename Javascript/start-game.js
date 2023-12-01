@@ -6,6 +6,12 @@ const error = document.querySelector('#error');
 const startContent = document.querySelector('.start-content');
 const startagain = document.querySelector('.start-again');
 const wordDisplay = document.querySelector('.type-in-letter');
+// const lastresults = document.querySelector('#game-win');
+// lastresults.classList.remove('game-win');
+
+const gameWinElement = document.querySelector('#game-win');
+gameWinElement.classList.remove('game-win');
+
 
 menu.style.display = 'none';
 hangman.style.display = 'none';
@@ -52,3 +58,4 @@ startGameBtn.addEventListener('click', () => {
         console.log(localStorage);
     }
 });
+export{gameWinElement}

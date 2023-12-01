@@ -7,14 +7,11 @@
 body {
 	background: url('/SVG/Bakgrund.svg');
 	height: 100vh;
+	/* height: 100%; */
 	background-size: cover;
 	margin: 0;
-}
+	/* padding: auto; */
 
-.swap {
-	display: flex;
-	justify-content: center;
-	height: 4em;
 }
 
 header {
@@ -68,7 +65,7 @@ p {
 .swap {
 	display: flex;
 	justify-content: center;
-	height: 4em;
+	padding: 1em;
 }
 
 .div1 {
@@ -100,8 +97,10 @@ button:hover {
 }
 
 .game-content {
-	margin-top: 60px;
+	margin-top: 40px;
 	width: 40vw;
+	position: relative;
+	left: 40%;
 }
 
 .huvudorange {
@@ -117,7 +116,7 @@ main .start-content {
 	align-items: center;
 	height: 5em;
 	font-family: 'Nosifer', sans-serif;
-	font-size: 1.4em;
+	font-size: 1em;
 
 }
 
@@ -130,7 +129,6 @@ main .start-content #input-name {
 	font-size: 16px;
 	border-width: 6px;
 	border-color: #38D2D2;
-	;
 	background-color: #ffffff;
 	color: #000000;
 	border-style: outset;
@@ -161,22 +159,110 @@ main #error {
 .ordet p {
 	padding: 10px;
 }
+
 .felGissingSec {
 	text-decoration: line-through;
 	display: flex;
 	justify-content: center;
 	padding-right: 3em;
-	
+
 }
+
 .felGissingSec p {
 	margin: 0.5em;
 }
-.game-over{
+
+.game-over {
 	display: block;
 	text-align: center;
 	margin: 1em;
+	place-items: center;
+	justify-self: center;
+	justify-content: center;
+
 }
 
-.game-over > *{
+.game-over h1 {
+	font-family: 'Nosifer', sans-serif;
+	margin-top: 0;
+
+}
+
+.game-over>* {
 	margin: 0.5em;
+	place-items: center;
+	display: flex;
+	justify-content: center;
+	font-size: 1.6em;
+
+}
+
+.gameWin {
+	background: url('/SVG/trophy-svgrepo-com.svg');
+	background-size: cover;
+	position: relative;
+	left: 46%;
+	width: 6em;
+	height: 6em;
+}
+
+@media (max-width: 650px) {
+	/* body {
+		padding: auto;
+		height: 100%;
+	}
+	 */
+	header{
+		font-size: 19px;
+		height: 110px;
+	}
+	.gameWin {
+		position: relative;
+		left: 42%;
+	}
+	.game-over h1 {
+		font-size: 1.5em;
+	}
+	button {
+		padding: 10px 35px;
+		font-size: 12px;
+	}
+	.game-content {
+		margin-top: 15px;
+		width: 40vw;
+		position: relative;
+		left: 27%;
+	}
+	.game-over>* {
+		
+		font-size: 1em;
+	
+	}
+}
+@media (max-width: 370px) {
+	/* body {
+		padding: auto;
+		height: 100%;
+	} */
+	header{
+		font-size: 13px;
+		height: 90px;
+	}
+	.gameWin {
+		position: relative;
+		left: 37%;
+	}
+	.game-over h1 {
+		font-size: 1em;
+	}
+	button {
+		padding: 10px 35px;
+	}
+	.game-content {
+		margin-top: 15px;
+		width: 40vw;
+		position: relative;
+		left: 18%;
+	}
+	
 }
