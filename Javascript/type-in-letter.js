@@ -2,34 +2,44 @@
 import { words } from "./ordlista.js"
 import { gameresults, gameWin, gameover } from "./win-lose.js";
 // import { fellista } from "./wrong-letter.js";
-const ordLista = words;
+import { loadUserInfoFromLocalStorage, saveUserToLocalStorage } from "./script.js";
+import { storedUserData } from "./start-game.js";
+let userInfo = loadUserInfoFromLocalStorage()
+
+
+let ordLista = words;
 let inputValue;
-const ordet = document.querySelector(".ordet");
-let ordLängd = 10;
+let ordet = document.querySelector(".ordet");
+let wordlength = 10
+let spelOrd = slumpaOrd();
 
 function slumpaOrd() {
-    let tempOrd = ordLängd;
-    let ord;
-    do {
-        ord = ordLista[Math.floor(Math.random() * ordLista.length)];
-    } while (ord.length !== tempOrd);
+	let tempOrd = wordlength;
+	let ord;
+	do {
+		ord = ordLista[Math.floor(Math.random() * ordLista.length)];
+	} while (ord.length !== tempOrd);
 
-    ord = ord.toUpperCase();
-    return ord;
+	ord = ord.toUpperCase();
+	
+	return ord
 }
-let spelOrd = slumpaOrd();
+ 
+
+
 let listaBokstav = [];
-const hangman = document.querySelector('.game-content');
-const marken = document.querySelector('#ground');
-const scaffold = document.querySelector('#scaffold');
-const benen = document.querySelector('#legs');
-const kropen = document.querySelector('#body');
-const armen = document.querySelector('#arms');
-const huvud = document.querySelector('#head');
-const huvudorange = document.querySelector('.huvudorange');
-const inputDisplay = document.querySelector('.type-in-letter')
-const startagain = document.querySelector('.start-again');
-const spelaOmBtn = document.querySelector(".spela")
+
+let hangman = document.querySelector('.game-content');
+let marken = document.querySelector('#ground');
+let scaffold = document.querySelector('#scaffold');
+let benen = document.querySelector('#legs');
+let kropen = document.querySelector('#body');
+let armen = document.querySelector('#arms');
+let huvud = document.querySelector('#head');
+let huvudorange = document.querySelector('.huvudorange');
+let inputDisplay = document.querySelector('.type-in-letter')
+let startagain = document.querySelector('.start-again');
+let spelaOmBtn = document.querySelector(".spela")
 
 // const stängAv = document.querySelector('.exit');
 
@@ -69,6 +79,7 @@ let bokstav
 let gameContentSection = document.querySelector(".felGissingSec")
 spelOrd.split("").forEach((bokstavlista) => {
     allaLetters.push(bokstavlista)
+
 })
 let guessesMade = 0;
 let guessedLetters = []
@@ -211,6 +222,24 @@ function handleFelGissning() {
         felGissning++;
         startagain.style.display = 'block';
         gameover();
+		try {
+        	
+		
+			let userObj = {
+				user: JSON.parse(localStorage.getItem('users')),
+				score: points,
+				date: new Date().toLocaleDateString() + "Kl: " + new Date().toLocaleTimeString(),
+				// time: new Date().toLocaleTimeString(),
+				loss: "förlorade", 
+				guesses: 12,
+				wordLegnth: "10"
+			};
+			saveUserToLocalStorage(userObj)
+			userInfo.push(userObj)
+            console.log(localStorage, userInfo);
+        } catch (error) {
+            console.error("Ett fel uppstod:", error);
+        }
     }
 
 }
@@ -272,4 +301,4 @@ showPoints.innerText = points
 parent.append(showPoints)
 
 // export {inputValue}
-export { spelOrd, points, guessedLetters, gameContentSection, ordet, guessesMade }
+export { spelOrd, points, guessedLetters, gameContentSection, ordet, guessesMade, userInfo }
