@@ -96,7 +96,7 @@ topplistaBtn.addEventListener
 				toppListItems.classList.add("list-columner")
 				SkapaPtaggar()
 				toppListItems.innerText = userInfo[i].user
-				scoreItem.innerText = userInfo[i].score
+				scoreItem.innerText = "poäng: " + userInfo[i].score
 				scoreDate.innerText = userInfo[i].date
 				// scoreTime.innerText = userInfo[i].time
 				scoreguess.innerText = userInfo[i].guesses
@@ -127,7 +127,7 @@ topplistaBtn.addEventListener
 				toppListItems.classList.add("list-columner");
 				SkapaPtaggar()
 				toppListItems.innerText = sortedScore[i].user;
-				scoreItem.innerText = sortedScore[i].score;
+				scoreItem.innerText = "poäng: " + sortedScore[i].score;
 				scoreDate.innerText = sortedScore[i].date;
 				// scoreTime.innerText = sortedScore[i].time;
 				scoreguess.innerText = sortedScore[i].guesses
@@ -177,7 +177,7 @@ topplistaBtn.addEventListener
 				
 				SkapaPtaggar()
 				toppListItems.innerText = sortedDate[i].user;
-				scoreItem.innerText = sortedDate[i].score;
+				scoreItem.innerText = "poäng: " + sortedDate[i].score;
 				scoreDate.innerText = sortedDate[i].date;
 				// scoreTime.innerText = sortedDate[i].time;
 				scoreguess.innerText = sortedDate[i].guesses

@@ -1,5 +1,5 @@
 import { spelOrd, points, guessedLetters, gameContentSection,
-    ordet, guessesMade, userInfo, displayHangman } from "./type-in-letter.js";
+    ordet, guessesMade, userInfo, displayHangman, LocalSWordLength } from "./type-in-letter.js";
 	import { loadUserInfoFromLocalStorage, saveUserToLocalStorage } from "./script.js";
 const startagain = document.querySelector('.start-again');
 const gameresults = document.querySelector(".game-over");
@@ -46,7 +46,7 @@ export function gameover() {
 			// time: new Date().toLocaleTimeString(),
 			loss: "förlorade", 
 			guesses: guessesMade,
-			wordLegnth: "10"
+			wordLegnth: LocalSWordLength
 		};
 		saveUserToLocalStorage(userObj)
 		userInfo.push(userObj)

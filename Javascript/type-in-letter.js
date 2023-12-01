@@ -54,7 +54,7 @@ hintIcon.classList.add("hint")
 parent.appendChild(hintIcon)
 let hintBokstav
 let visadeLetters = []
-
+let LocalSWordLength = 10 
 easy.addEventListener("click", () => {
 	wordlength = 10
 	console.log("clickat");
@@ -62,6 +62,7 @@ easy.addEventListener("click", () => {
 	console.log(spelOrd);
 	easy.classList.remove("blue")
 	hard.classList.remove("green")
+	LocalSWordLength = 10
 })
 hard.addEventListener("click", () => {
 	wordlength = 5
@@ -70,6 +71,7 @@ hard.addEventListener("click", () => {
 	console.log(spelOrd);
 	easy.classList.add("blue")
 	hard.classList.add("green")
+	LocalSWordLength = 5
 })
 
 // document.addEventListener("DOMContentLoaded", function () {
@@ -303,4 +305,4 @@ showPoints.innerText = points
 parent.append(showPoints)
 
 // export {inputValue}
-export { spelOrd, points, guessedLetters, gameContentSection, ordet, guessesMade, userInfo}
+export { spelOrd, points, guessedLetters, gameContentSection, ordet, guessesMade, userInfo, LocalSWordLength}
