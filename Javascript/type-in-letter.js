@@ -3,6 +3,7 @@ import { words } from "./ordlista.js"
 import { gameresults, gameWin, gameover } from "./win-lose.js";
 // import { fellista } from "./wrong-letter.js";
 import { loadUserInfoFromLocalStorage, saveUserToLocalStorage } from "./script.js";
+import { storedUserData } from "./start-game.js";
 let userInfo = loadUserInfoFromLocalStorage()
 
 
@@ -240,24 +241,7 @@ function handleFelGissning() {
         felGissning++;
         startagain.style.display = 'block';
         gameover();
-		try {
-        	
 		
-			let userObj = {
-				user: JSON.parse(localStorage.getItem('users')),
-				score: points,
-				date: new Date().toLocaleDateString() + "Kl: " + new Date().toLocaleTimeString(),
-				// time: new Date().toLocaleTimeString(),
-				loss: "förlorade", 
-				guesses: 12,
-				wordLegnth: "10"
-			};
-			saveUserToLocalStorage(userObj)
-			userInfo.push(userObj)
-            console.log(localStorage, userInfo);
-        } catch (error) {
-            console.error("Ett fel uppstod:", error);
-        }
     }
 
 }

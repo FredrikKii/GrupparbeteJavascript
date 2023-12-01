@@ -6,7 +6,7 @@ const hangman = document.querySelector(".game-content")
 const spelaBtn = document.querySelector(".spela")
 const startagain = document.querySelector('.start-again');
 const ordet = document.querySelector(".ordet");
-
+let difficulty = document.querySelector(".difficulty")
 
 let toppListaNr = 0
 // let element = 0
@@ -48,7 +48,7 @@ topplistaBtn.addEventListener
 			let toppListaHeadh1 = document.createElement("h1")
 			toppListaHeadh1.innerText = "TOPPLISTA"
 			
-			let sortedScore = userInfo.sort((a, b) => b.score - a.score)
+			let sortedScore = userInfo.sort((a, b) => a.guesses - b.guesses)
 			console.log(userInfo)
 			toppListaHeadDiv.classList.add("div-header")
 			let toppListaHeadP = 0
@@ -62,7 +62,7 @@ topplistaBtn.addEventListener
 					toppListaHeadP = document.createElement("p")
 					toppListaHeadPPoints = toppListaHeadP
 					toppListaHeadPPoints.classList.add("point-date")
-					toppListaHeadP.innerText = "Poäng"
+					toppListaHeadP.innerText = "Gissningar"
 					toppListaHeadDiv.appendChild(toppListaHeadP)
 				}
 				else if (p === 2) {
@@ -92,14 +92,14 @@ topplistaBtn.addEventListener
 
 
 			for (let i = 0; i < userInfo.length; i++) {
-				toppListItems = document.createElement("li")
+				toppListItems = document.createElement("p")
 				toppListItems.classList.add("list-columner")
 				SkapaPtaggar()
 				toppListItems.innerText = userInfo[i].user
 				scoreItem.innerText = userInfo[i].score
 				scoreDate.innerText = userInfo[i].date
 				// scoreTime.innerText = userInfo[i].time
-				scoreguess.innerText = "Antal gissningar: " + userInfo[i].guesses
+				scoreguess.innerText = userInfo[i].guesses
 				scorelength.innerText = "ordlängd: " + userInfo[i].wordLegnth
 				scoreLoss.innerText = userInfo[i].loss
 
@@ -115,7 +115,7 @@ topplistaBtn.addEventListener
 			
 			toppListaHeadPPoints.classList.remove("alt")
 			toppListaHeadPDate.classList.add("alt")
-			sortedScore = userInfo.sort((a, b) => b.score - a.score);
+			sortedScore = userInfo.sort((a, b) => a.guesses - b.guesses);
 
 			// Töm den befintliga listan
 			while (toppListaNr.firstChild) {
@@ -123,14 +123,14 @@ topplistaBtn.addEventListener
 			}
 
 			for (let i = 0; i < sortedScore.length; i++) {
-				toppListItems = document.createElement("li");
+				toppListItems = document.createElement("p");
 				toppListItems.classList.add("list-columner");
 				SkapaPtaggar()
 				toppListItems.innerText = sortedScore[i].user;
 				scoreItem.innerText = sortedScore[i].score;
 				scoreDate.innerText = sortedScore[i].date;
 				// scoreTime.innerText = sortedScore[i].time;
-				scoreguess.innerText = "Antal gissningar: " + sortedScore[i].guesses
+				scoreguess.innerText = sortedScore[i].guesses
 				scorelength.innerText = "ordlängd: " + sortedScore[i].wordLegnth
 				scoreLoss.innerText = sortedScore[i].loss
 
@@ -138,11 +138,33 @@ topplistaBtn.addEventListener
 			}
 		})
 		
+		let datumSortVariabel = 0
 		toppListaHeadPDate.addEventListener("click", () => {
 			console.log("Clickat");
 			toppListaHeadPPoints.classList.add("alt")
 			toppListaHeadPDate.classList.remove("alt")
-			const sortedDate = userInfo.sort((a, b) => b.date - a.date);
+			let sortedDate
+			if (datumSortVariabel === 0 ){
+				sortedDate = userInfo.sort((a, b) => {
+					const dateA = a.date.split(", ")[0]; // 
+					const timeA = a.date.split(", ")[1]; // 
+					const dateB = b.date.split(", ")[0];
+					const timeB = b.date.split(", ")[1];
+					
+					datumSortVariabel = 1
+					return new Date(dateB + " " + timeB) - new Date(dateA + " " + timeA);
+				});
+			}
+				else {
+					sortedDate = userInfo.sort((a, b) => {
+					const dateA = a.date.split(", ")[0]; // 
+					const timeA = a.date.split(", ")[1]; // 
+					const dateB = b.date.split(", ")[0];
+					const timeB = b.date.split(", ")[1];
+					datumSortVariabel = 0
+					return new Date(dateA + " " + timeA) - new Date(dateB + " " + timeB);
+				})}
+		
 
 			// Töm den befintliga listan
 			while (toppListaNr.firstChild) {
@@ -150,7 +172,7 @@ topplistaBtn.addEventListener
 			}
 			
 			for (let i = 0; i < sortedDate.length; i++) {
-				toppListItems = document.createElement("li");
+				toppListItems = document.createElement("p");
 				toppListItems.classList.add("list-columner");
 				
 				SkapaPtaggar()
@@ -158,7 +180,7 @@ topplistaBtn.addEventListener
 				scoreItem.innerText = sortedDate[i].score;
 				scoreDate.innerText = sortedDate[i].date;
 				// scoreTime.innerText = sortedDate[i].time;
-				scoreguess.innerText = "Antal gissningar: " + sortedDate[i].guesses
+				scoreguess.innerText = sortedDate[i].guesses
 				scorelength.innerText = "ordlängd: " + sortedDate[i].wordLegnth
 				scoreLoss.innerText = sortedDate[i].loss
 
@@ -192,10 +214,10 @@ function remakeToppList() {
     }
 }
 function addElementsBackInToppList () {
-	toppListItems.appendChild(scoreItem);
+	toppListItems.appendChild(scoreguess)
 	toppListItems.appendChild(scoreDate);
 	// toppListItems.appendChild(scoreTime)
-	toppListItems.appendChild(scoreguess)
+	toppListItems.appendChild(scoreItem);
 	toppListItems.appendChild(scorelength)
 	toppListItems.appendChild(scoreLoss)
 	toppListaNr.appendChild(toppListItems);
