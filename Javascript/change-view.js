@@ -1,4 +1,5 @@
 import { userInfo } from "./type-in-letter.js"
+import { difficulty } from "./start-game.js"
 const wordDisplay = document.querySelector('.type-in-letter');
 const startContent = document.querySelector('.start-content');
 const topplistaBtn = document.querySelector(".topplista")
@@ -29,7 +30,7 @@ topplistaBtn.addEventListener
 		startagain.style.display = 'none'
 		hangman.style.display = 'none'
 		ordet.style.display = 'none'
-		difficulty.remove('difficulty')
+		// difficulty.remove('difficulty')
 		
 		
 		remakeToppList()
@@ -173,9 +174,10 @@ topplistaBtn.addEventListener
 spelaBtn.addEventListener("click", () => {
 	startContent.style.display = 'none';
 	hangman.style.display = 'none';
-	wordDisplay.style.display = 'block';
+	wordDisplay.style.display = 'none';
 	startagain.style.display = 'none';
 	ordet.style.display = 'flex'
+	difficulty.style.display = 'block'
 	if (toppListaBack) {
 		toppListaBack.style.display = 'none';
 	}
@@ -209,3 +211,4 @@ function SkapaPtaggar () {
 	scorelength = document.createElement("p")
 	scoreLoss = document.createElement("p")
 }
+export{wordDisplay}

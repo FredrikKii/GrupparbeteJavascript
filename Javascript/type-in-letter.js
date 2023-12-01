@@ -1,5 +1,8 @@
 
 import { words } from "./ordlista.js"
+import { difficulty } from "./start-game.js"
+import { wordDisplay } from "./change-view.js"
+
 import { gameresults, gameWin, gameover } from "./win-lose.js";
 // import { fellista } from "./wrong-letter.js";
 import { loadUserInfoFromLocalStorage, saveUserToLocalStorage } from "./script.js";
@@ -55,6 +58,8 @@ let hintBokstav
 let visadeLetters = []
 
 easy.addEventListener("click", () => {
+    wordDisplay.style.display = 'block'
+	difficulty.style.display = 'none'
 	wordlength = 10
 	console.log("clickat");
 	spelOrd = slumpaOrd()
@@ -62,6 +67,8 @@ easy.addEventListener("click", () => {
 	
 })
 hard.addEventListener("click", () => {
+    wordDisplay.style.display = 'block'
+	difficulty.style.display = 'none'
 	wordlength = 5
 	console.log("clickat");
 	spelOrd = slumpaOrd()
