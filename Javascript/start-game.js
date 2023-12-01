@@ -5,6 +5,7 @@ const hangman = document.querySelector('.game-content');
 const error = document.querySelector('#error');
 const startContent = document.querySelector('.start-content');
 const startagain = document.querySelector('.start-again');
+const difficulty = document.querySelector('.difficulty');
 const wordDisplay = document.querySelector('.type-in-letter');
 // const lastresults = document.querySelector('#game-win');
 // lastresults.classList.remove('game-win');

@@ -155,9 +155,11 @@ main #error {
 	flex-direction: row;
 	justify-content: center;
 }
+
 .ordet.alt {
 	display: none;
 }
+
 .ordet p {
 	padding: 10px;
 }
@@ -206,65 +208,91 @@ main #error {
 	left: 46%;
 	width: 6em;
 	height: 6em;
+} 
+.gameLose {
+	background: url('/SVG/hangman.svg');
+	background-size: cover;
+	position: relative;
+	left: 41%;
+	width: 6em;
+	height: 6em;
 }
 
 @media (max-width: 650px) {
+
 	/* body {
 		padding: auto;
 		height: 100%;
 	}
 	 */
-	header{
+	header {
 		font-size: 19px;
 		height: 110px;
 	}
+
 	.gameWin {
 		position: relative;
 		left: 42%;
 	}
+	.gameLose {
+		position: relative;
+		left: 37%;
+	}
 	.game-over h1 {
 		font-size: 1.5em;
 	}
+
 	button {
 		padding: 10px 35px;
 		font-size: 12px;
 	}
+
 	.game-content {
 		margin-top: 15px;
 		width: 40vw;
 		position: relative;
 		left: 27%;
 	}
+
 	.game-over>* {
-		
+
 		font-size: 1em;
-	
+
 	}
 }
+
 @media (max-width: 370px) {
+
 	/* body {
 		padding: auto;
 		height: 100%;
 	} */
-	header{
+	header {
 		font-size: 13px;
 		height: 90px;
 	}
+
 	.gameWin {
 		position: relative;
 		left: 37%;
 	}
+	.gameLose {
+		position: relative;
+		left: 35%;
+	}
 	.game-over h1 {
 		font-size: 1em;
 	}
+
 	button {
 		padding: 10px 35px;
 	}
+
 	.game-content {
 		margin-top: 15px;
 		width: 40vw;
 		position: relative;
 		left: 18%;
 	}
-	
+
 }
