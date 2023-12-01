@@ -7,7 +7,6 @@ const hangman = document.querySelector(".game-content")
 const spelaBtn = document.querySelector(".spela")
 const startagain = document.querySelector('.start-again');
 const ordet = document.querySelector(".ordet");
-let difficulty = document.querySelector(".difficulty")
 
 let toppListaNr = 0
 // let element = 0

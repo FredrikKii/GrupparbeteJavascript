@@ -12,7 +12,6 @@ const wordDisplay = document.querySelector('.type-in-letter');
 // lastresults.classList.remove('game-win');
 const gameWinElement = document.querySelector('#game-win');
 gameWinElement.classList.remove('game-win');
-difficulty.style.display ="none"
 
 menu.style.display = 'none';
 hangman.style.display = 'none';
@@ -35,7 +34,6 @@ input.addEventListener("keypress", function (event) {
 let storedUserData
 startGameBtn.addEventListener('click', () => {
 	let userName = inputName.value.trim();
-	difficulty.style.display = "block"
     let onlyLettersRegex = /^[A-Za-zÖÄÅöäå]+$/;
 
     if (userName === "") {

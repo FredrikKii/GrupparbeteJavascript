@@ -65,19 +65,15 @@ easy.addEventListener("click", () => {
 	console.log("clickat");
 	spelOrd = slumpaOrd()
 	console.log(spelOrd);
-	easy.classList.remove("blue")
-	hard.classList.remove("green")
 	LocalSWordLength = 10
 })
 hard.addEventListener("click", () => {
-    wordDisplay.style.display = 'block'
+    wordDisplay.style.display = 'block'  
 	difficulty.style.display = 'none'
 	wordlength = 5
 	console.log("clickat");
 	spelOrd = slumpaOrd()
 	console.log(spelOrd);
-	easy.classList.add("blue")
-	hard.classList.add("green")
 	LocalSWordLength = 5
 })
 
