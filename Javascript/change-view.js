@@ -29,6 +29,8 @@ topplistaBtn.addEventListener
 		startagain.style.display = 'none'
 		hangman.style.display = 'none'
 		ordet.style.display = 'none'
+		difficulty.style.display = 'none'
+
 		// difficulty.remove('difficulty')
 		
 		
