@@ -3,7 +3,6 @@ import { words } from "./ordlista.js"
 import { gameresults, gameWin, gameover } from "./win-lose.js";
 // import { fellista } from "./wrong-letter.js";
 import { loadUserInfoFromLocalStorage, saveUserToLocalStorage } from "./script.js";
-import { storedUserData } from "./start-game.js";
 let userInfo = loadUserInfoFromLocalStorage()
 
 
@@ -43,6 +42,7 @@ let spelaOmBtn = document.querySelector(".spela")
 let easy = document.querySelector(".easy")
 let hard = document.querySelector(".hard")
 
+
 // const stängAv = document.querySelector('.exit');
 
 let showPoints = document.createElement("h2")
@@ -59,14 +59,16 @@ easy.addEventListener("click", () => {
 	console.log("clickat");
 	spelOrd = slumpaOrd()
 	console.log(spelOrd);
-	
+	easy.classList.remove("blue")
+	hard.classList.remove("green")
 })
 hard.addEventListener("click", () => {
 	wordlength = 5
 	console.log("clickat");
 	spelOrd = slumpaOrd()
 	console.log(spelOrd);
-
+	easy.classList.add("blue")
+	hard.classList.add("green")
 })
 
 // document.addEventListener("DOMContentLoaded", function () {
@@ -317,4 +319,4 @@ showPoints.innerText = points
 parent.append(showPoints)
 
 // export {inputValue}
-export { spelOrd, points, guessedLetters, gameContentSection, ordet, guessesMade, userInfo }
+export { spelOrd, points, guessedLetters, gameContentSection, ordet, guessesMade, userInfo}

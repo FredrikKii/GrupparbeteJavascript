@@ -217,7 +217,18 @@ main #error {
 	width: 6em;
 	height: 6em;
 }
-
+.easy {
+	background-color: green;
+}
+.easy.blue{
+	background-color:#38D2D2 ;
+}
+.hard {
+	background-color: #38D2D2;
+}
+.hard.green{
+	background-color: green;
+}
 @media (max-width: 650px) {
 
 	/* body {
