@@ -60,7 +60,7 @@ export function gameWin() {
     gameresults.style.display = 'block';
     inputDisplay.style.display = 'none'
     gameContentSection.style.display = 'none'
-    ord.style.display = 'none'
+    // ord.style.display = 'none'
     gameWinDiv.classList.add('gameWin');
 
     poäng.innerText = `Du fick: ${points} poäng.`;

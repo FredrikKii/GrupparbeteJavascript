@@ -57,24 +57,35 @@ hintIcon.classList.add("hint")
 parent.appendChild(hintIcon)
 let hintBokstav
 let visadeLetters = []
-let LocalSWordLength = 10 
+let LocalSWordLength 
 easy.addEventListener("click", () => {
     wordDisplay.style.display = 'block'
 	difficulty.style.display = 'none'
 	wordlength = 10
 	console.log("clickat");
-	spelOrd = slumpaOrd()
 	console.log(spelOrd);
 	LocalSWordLength = 10
+	spelOrd.split("").forEach((correctLetter) => {    
+		let bokstav = document.createElement("p");
+		bokstav.innerText = "_";
+		ordet.appendChild(bokstav);})
+		spelOrd = slumpaOrd()
+
 })
 hard.addEventListener("click", () => {
     wordDisplay.style.display = 'block'  
 	difficulty.style.display = 'none'
 	wordlength = 5
 	console.log("clickat");
+	LocalSWordLength = 5
 	spelOrd = slumpaOrd()
 	console.log(spelOrd);
-	LocalSWordLength = 5
+	spelOrd.split("").forEach((correctLetter) => {    
+		let bokstav = document.createElement("p");
+		bokstav.innerText = "_";
+		ordet.appendChild(bokstav);})
+		spelOrd = slumpaOrd()
+		console.log(LocalSWordLength);
 })
 
 // document.addEventListener("DOMContentLoaded", function () {
