@@ -1,6 +1,6 @@
 import { spelOrd, points, guessedLetters, gameContentSection,
-    ordet, guessesMade } from "./type-in-letter.js";
-
+    ordet, guessesMade, userInfo } from "./type-in-letter.js";
+	import { loadUserInfoFromLocalStorage, saveUserToLocalStorage } from "./script.js";
 const startagain = document.querySelector('.start-again');
 const gameresults = document.querySelector(".game-over");
 const inputDisplay = document.querySelector('.type-in-letter');
@@ -32,6 +32,24 @@ export function gameover() {
     gameresults.appendChild(poäng);
     gameresults.appendChild(ord);
     gameresults.appendChild(felBokstav);
+	try {
+        	
+		
+		let userObj = {
+			user: JSON.parse(localStorage.getItem('users')),
+			score: points,
+			date: new Date().toLocaleDateString() + ", " + new Date().toLocaleTimeString(),
+			// time: new Date().toLocaleTimeString(),
+			loss: "förlorade", 
+			guesses: guessesMade,
+			wordLegnth: "10"
+		};
+		saveUserToLocalStorage(userObj)
+		userInfo.push(userObj)
+		console.log(localStorage, userInfo);
+	} catch (error) {
+		console.error("Ett fel uppstod:", error);
+	}
 }
 
 export function gameWin() {
@@ -49,6 +67,24 @@ export function gameWin() {
     gameresults.appendChild(tittel);
     gameresults.appendChild(poäng);
     gameresults.appendChild(felBokstav);
+	try {
+        	
+		
+		let userObj = {
+			user: JSON.parse(localStorage.getItem('users')),
+			score: points,
+			date: new Date().toLocaleDateString() + ", " + new Date().toLocaleTimeString(),
+			// time: new Date().toLocaleTimeString(),
+			loss: "Vinnare", 
+			guesses: guessesMade,
+			wordLegnth: "10"
+		};
+		saveUserToLocalStorage(userObj)
+		userInfo.push(userObj)
+		console.log(localStorage, userInfo);
+	} catch (error) {
+		console.error("Ett fel uppstod:", error);
+	}
     
 }
 
