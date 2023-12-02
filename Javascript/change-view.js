@@ -5,7 +5,6 @@ const startContent = document.querySelector('.start-content');
 const topplistaBtn = document.querySelector(".topplista")
 const hangman = document.querySelector(".game-content")
 const spelaBtn = document.querySelector(".spela")
-const startagain = document.querySelector('.start-again');
 const ordet = document.querySelector(".ordet");
 
 let toppListaNr = 0
@@ -26,7 +25,6 @@ topplistaBtn.addEventListener
 	("click", () => {
 		startContent.style.display = 'none'
 		wordDisplay.style.display = 'none';
-		startagain.style.display = 'none'
 		hangman.style.display = 'none'
 		ordet.style.display = 'none'
 		difficulty.style.display = 'none'
@@ -198,14 +196,13 @@ spelaBtn.addEventListener("click", () => {
 	startContent.style.display = 'none';
 	hangman.style.display = 'none';
 	wordDisplay.style.display = 'none';
-	startagain.style.display = 'none';
 	ordet.style.display = 'flex'
 	difficulty.style.display = 'block'
 	if (toppListaBack) {
 		toppListaBack.style.display = 'none';
 	}
-
 })
+
 
 function remakeToppList() {
     if (redanSkapadLista) {

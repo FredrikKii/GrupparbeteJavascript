@@ -17,17 +17,17 @@ let wordlength = 10
 let spelOrd = slumpaOrd();
 
 function slumpaOrd() {
-	let tempOrd = wordlength;
-	let ord;
-	do {
-		ord = ordLista[Math.floor(Math.random() * ordLista.length)];
-	} while (ord.length !== tempOrd);
+    let tempOrd = wordlength;
+    let ord;
+    do {
+        ord = ordLista[Math.floor(Math.random() * ordLista.length)];
+    } while (ord.length !== tempOrd);
 
-	ord = ord.toUpperCase();
-	
-	return ord
+    ord = ord.toUpperCase();
+
+    return ord
 }
- 
+
 
 
 let listaBokstav = [];
@@ -41,7 +41,6 @@ let armen = document.querySelector('#arms');
 let huvud = document.querySelector('#head');
 let huvudorange = document.querySelector('.huvudorange');
 let inputDisplay = document.querySelector('.type-in-letter')
-let startagain = document.querySelector('.start-again');
 let spelaOmBtn = document.querySelector(".spela")
 let easy = document.querySelector(".easy")
 let hard = document.querySelector(".hard")
@@ -57,36 +56,38 @@ hintIcon.classList.add("hint")
 parent.appendChild(hintIcon)
 let hintBokstav
 let visadeLetters = []
-let LocalSWordLength 
+let LocalSWordLength
 easy.addEventListener("click", () => {
     wordDisplay.style.display = 'block'
-	difficulty.style.display = 'none'
-	wordlength = 10
-	console.log("clickat");
-	console.log(spelOrd);
-	spelOrd = slumpaOrd()
-	LocalSWordLength = 10
-	spelOrd.split("").forEach((correctLetter) => {    
-		let bokstav = document.createElement("p");
-		bokstav.innerText = "_";
-		ordet.appendChild(bokstav);})
-		spelOrd = slumpaOrd()
+    difficulty.style.display = 'none'
+    wordlength = 10
+    console.log("clickat");
+    console.log(spelOrd);
+    spelOrd = slumpaOrd()
+    LocalSWordLength = 10
+    spelOrd.split("").forEach((correctLetter) => {
+        let bokstav = document.createElement("p");
+        bokstav.innerText = "_";
+        ordet.appendChild(bokstav);
+    })
+    spelOrd = slumpaOrd()
 
 })
 hard.addEventListener("click", () => {
-    wordDisplay.style.display = 'block'  
-	difficulty.style.display = 'none'
-	wordlength = 5
-	console.log("clickat");
-	LocalSWordLength = 5
-	spelOrd = slumpaOrd()
-	console.log(spelOrd);
-	spelOrd.split("").forEach((correctLetter) => {    
-		let bokstav = document.createElement("p");
-		bokstav.innerText = "_";
-		ordet.appendChild(bokstav);})
-		spelOrd = slumpaOrd()
-		console.log(LocalSWordLength);
+    wordDisplay.style.display = 'block'
+    difficulty.style.display = 'none'
+    wordlength = 5
+    console.log("clickat");
+    LocalSWordLength = 5
+    spelOrd = slumpaOrd()
+    console.log(spelOrd);
+    spelOrd.split("").forEach((correctLetter) => {
+        let bokstav = document.createElement("p");
+        bokstav.innerText = "_";
+        ordet.appendChild(bokstav);
+    })
+    spelOrd = slumpaOrd()
+    console.log(LocalSWordLength);
 })
 
 // document.addEventListener("DOMContentLoaded", function () {
@@ -155,7 +156,6 @@ inputElement.addEventListener('keyup', function (e) {
 
             if (listaBokstav.includes(correctLetter)) {
                 bokstav.innerText = correctLetter;
-
             }
             else {
                 bokstav.innerText = "_";
@@ -256,14 +256,11 @@ function handleFelGissning() {
         huvud.style.display = 'block';
         huvudorange.style.display = 'block';
         felGissning++;
-        startagain.style.display = 'block';
         gameover();
-		
+
     }
 
 }
-
-
 
 // document.querySelector('.exit').addEventListener('click', function () {
 //     // window.location.reload();
@@ -274,7 +271,6 @@ function spelaOm() {
     displayHangman();
     gameresults.style.display = 'none';
     // inputDisplay.style.display = 'none';
-    startagain.style.display = 'none';
     gameContentSection.style.display = 'flex';
     ordet.style.display = 'flex';
     spelaOmBtn.innerText = 'Starta om';
@@ -320,4 +316,4 @@ showPoints.innerText = points
 parent.append(showPoints)
 
 // export {inputValue}
-export { spelOrd, points, guessedLetters, gameContentSection, ordet, guessesMade, userInfo, LocalSWordLength}
+export { spelOrd, points, guessedLetters, gameContentSection, ordet, guessesMade, userInfo, LocalSWordLength }

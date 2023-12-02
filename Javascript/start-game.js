@@ -5,7 +5,6 @@ const menu = document.querySelector('.parent');
 const hangman = document.querySelector('.game-content');
 const error = document.querySelector('#error');
 const startContent = document.querySelector('.start-content');
-const startagain = document.querySelector('.start-again');
 const difficulty = document.querySelector('.difficultySec');
 const wordDisplay = document.querySelector('.type-in-letter');
 // const lastresults = document.querySelector('#game-win');
@@ -16,7 +15,6 @@ gameWinElement.classList.remove('game-win');
 menu.style.display = 'none';
 hangman.style.display = 'none';
 wordDisplay.style.display = 'none';
-startagain.style.display = 'none'
 difficulty.style.display = 'none'
 
 let input = document.querySelector("#input-name");
