@@ -273,8 +273,8 @@ function spelaOm() {
     displayHangman();
     gameresults.style.display = 'none';
     inputDisplay.style.display = 'none';
-    // gameContentSection.style.display = 'flex';
-    // ordet.style.display = 'flex';
+    gameContentSection.style.display = 'flex';
+    ordet.style.display = 'flex';
     spelaOmBtn.innerText = 'Spela';
     ordet.innerText = '';
     gameContentSection.innerHTML = ""
