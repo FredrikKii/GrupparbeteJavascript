@@ -60,6 +60,7 @@ let LocalSWordLength
 easy.addEventListener("click", () => {
     wordDisplay.style.display = 'block'
     difficulty.style.display = 'none'
+    spelaOmBtn.innerText = 'Starta om';
     wordlength = 10
     console.log("clickat");
     console.log(spelOrd);
@@ -76,6 +77,7 @@ easy.addEventListener("click", () => {
 hard.addEventListener("click", () => {
     wordDisplay.style.display = 'block'
     difficulty.style.display = 'none'
+    spelaOmBtn.innerText = 'Starta om';
     wordlength = 5
     console.log("clickat");
     LocalSWordLength = 5
@@ -270,10 +272,10 @@ function handleFelGissning() {
 function spelaOm() {
     displayHangman();
     gameresults.style.display = 'none';
-    // inputDisplay.style.display = 'none';
-    gameContentSection.style.display = 'flex';
-    ordet.style.display = 'flex';
-    spelaOmBtn.innerText = 'Starta om';
+    inputDisplay.style.display = 'none';
+    // gameContentSection.style.display = 'flex';
+    // ordet.style.display = 'flex';
+    spelaOmBtn.innerText = 'Spela';
     ordet.innerText = '';
     gameContentSection.innerHTML = ""
     guessedLetters = []
