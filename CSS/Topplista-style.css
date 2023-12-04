@@ -2,8 +2,10 @@ body {
 	background: url('/GrupparbeteJavascript/SVG/Bakgrund.svg');
 	/* background: url('/SVG/Bakgrund.svg'); */
 	height: 100vh;
+	width: 100vw;
 	/* height: 100%; */
 	background-size: cover;
+	background-position: center bottom;
 	margin: 0;
 	/* padding: auto; */
 
