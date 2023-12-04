@@ -59,6 +59,11 @@ p {
 	display: flex;
 	justify-content: center;
 	padding: 1em;
+	gap: 0.5em;
+}
+
+.parent {
+	gap: 2em;
 }
 
 .div1 {
@@ -211,7 +216,7 @@ main #error {
 	height: 6em;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 800px) {
 
 	header {
 		font-size: 19px;
@@ -247,5 +252,17 @@ main #error {
 		font-size: 1em;
 
 	}
+	
+.swap,.difficulty {
+	display: flex;
+	justify-content: center;
+	padding: 1em;
+	gap: 0em;
+}
+
+.parent {
+	gap: 0em;
+}
+
 }
 
