@@ -43,8 +43,9 @@ header {
 }
 
 svg {
-	width: 300px;
-	height: 300px;
+	width: 350px;
+	height: 350px;
+	margin-top: 5em;
 }
 
 p {
@@ -203,20 +204,29 @@ main #error {
 	font-size: 1.6em;
 
 }
-
+.game-result {
+	display: flex;
+	justify-content: center;
+}
 .gameWin {
 	background: url('/GrupparbeteJavascript/SVG/trophy-svgrepo-com.svg');
+	/* background: url('/SVG/trophy-svgrepo-com.svg'); */
 	background-size: cover;
+	display: flex;
 	position: relative;
-	left: 46%;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	left: 26%;
 	width: 6em;
 	height: 6em;
 } 
 .gameLose {
 	background: url('/GrupparbeteJavascript/SVG/hangman.svg');
+	/* background: url('/SVG/hangman.svg'); */
 	background-size: cover;
 	position: relative;
-	left: 41%;
+	left: 26%;
 	width: 6em;
 	height: 6em;
 }
@@ -230,7 +240,7 @@ main #error {
 
 	.gameWin {
 		position: relative;
-		left: 42%;
+		left: 30%;
 	}
 	.gameLose {
 		position: relative;
@@ -267,6 +277,12 @@ main #error {
 
 .parent {
 	gap: 0em;
+}
+
+svg {
+	margin-top: 11em;
+	height: 300px;
+	width: 300px;
 }
 
 }

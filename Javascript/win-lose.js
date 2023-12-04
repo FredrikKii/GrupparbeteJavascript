@@ -2,6 +2,7 @@ import {
     spelOrd, points, guessedLetters, gameContentSection,
     ordet, guessesMade, userInfo, displayHangman, LocalSWordLength
 } from "./type-in-letter.js";
+import {hangman} from "./change-view.js";
 import { loadUserInfoFromLocalStorage, saveUserToLocalStorage } from "./script.js";
 const gameresults = document.querySelector(".game-over");
 const inputDisplay = document.querySelector('.type-in-letter');
@@ -13,9 +14,8 @@ const poäng = document.createElement('p');
 const ord = document.createElement('p');
 const felBokstav = document.createElement('p');
 const tittel = document.createElement('h1');
-
 export function gameover() {
-
+	hangman.style.display = "none";
     gameWinDiv.classList.remove('gameWin');
     gameWinDiv.classList.add('gameLose');
     inputDisplay.style.display = 'none'
@@ -35,7 +35,7 @@ export function gameover() {
     gameresults.appendChild(poäng);
     gameresults.appendChild(ord);
     gameresults.appendChild(felBokstav);
-    displayHangman();
+    // displayHangman();
     try {
 
 
@@ -63,7 +63,7 @@ export function gameWin() {
     ord.style.display = 'none'
     gameWinDiv.classList.add('gameWin');
     gameWinDiv.classList.remove('gameLose');
-
+	hangman.style.display = "none"
 
     poäng.innerText = `Du fick: ${points} poäng.`;
     // felBokstav.innerText = `Din gissning var: ${guessedLetters.join(', ').toUpperCase()}.`;

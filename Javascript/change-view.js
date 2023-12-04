@@ -277,4 +277,4 @@ function SkapaPtaggar () {
 	scorelength = document.createElement("p")
 	scoreLoss = document.createElement("p")
 }
-export{wordDisplay, backBtn, topplistaBtn}
+export{wordDisplay, backBtn, topplistaBtn, hangman}
