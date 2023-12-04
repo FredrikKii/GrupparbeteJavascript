@@ -5,7 +5,7 @@
 }
 
 body {
-	background: url('SVG/Bakgrund.svg');
+	background: url('./SVG/Bakgrund.svg');
 	height: 100vh;
 	/* height: 100%; */
 	background-size: cover;
@@ -202,7 +202,7 @@ main #error {
 }
 
 .gameWin {
-	background: url('SVG/trophy-svgrepo-com.svg');
+	background: url('./SVG/trophy-svgrepo-com.svg');
 	background-size: cover;
 	position: relative;
 	left: 46%;
@@ -210,7 +210,7 @@ main #error {
 	height: 6em;
 } 
 .gameLose {
-	background: url('SVG/hangman.svg');
+	background: url('./SVG/hangman.svg');
 	background-size: cover;
 	position: relative;
 	left: 41%;
