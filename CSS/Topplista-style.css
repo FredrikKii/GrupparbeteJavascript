@@ -151,4 +151,12 @@
 		width: 150px;
 		height: 150px;
 	}
+	main {
+		background: url('/GrupparbeteJavascript/SVG/Bakgrund.svg');
+		height: 50%;
+	}
+
+	body {
+		background-color: green;
+	}
 }
