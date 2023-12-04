@@ -256,11 +256,11 @@ main #error {
 	}
 }
 
-@media (max-width: 370px) {
+@media (max-width: 376px) {
 
 	header {
 		font-size: 13px;
-		height: 90px;
+		height: 30px;
 	}
 
 	.gameWin {
@@ -283,6 +283,13 @@ main #error {
 		margin-top: 10px;
 		position: relative;
 		left: 18%;
+	}
+	
+	.type-in-letter {
+		margin-top: -50px;
+	}
+	h2 {
+		font-size: 0.9em;
 	}
 
 }

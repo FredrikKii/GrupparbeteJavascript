@@ -50,10 +50,10 @@ let hard = document.querySelector(".hard")
 
 let showPoints = document.createElement("h2")
 let parent = document.querySelector(".type-in-letter")
-let hintIcon = document.createElement("p")
-hintIcon.innerText = "HINT ( -20p)"
-hintIcon.classList.add("hint")
-parent.appendChild(hintIcon)
+// let hintIcon = document.createElement("p")
+// hintIcon.innerText = "HINT ( -20p)"
+// hintIcon.classList.add("hint")
+// parent.appendChild(hintIcon)
 let hintBokstav
 let visadeLetters = []
 let LocalSWordLength
@@ -133,12 +133,12 @@ function checkWin() {
 
 // fixa så man inte "kan" klicka i samma bokstav(alltså att den inte visas)
 inputElement.addEventListener('keyup', function (e) {
-    let letterPattern = /^[A-Za-zÖÄÅöäå]+$/;
+    let  letterPattern = /^[a-öA-Ö]$/;
     if (letterPattern.test(e.key) && !guessedLetters.includes(e.key)) {
         guessesMade++
         console.log(`antal gissning ${guessesMade}`);
 
-        guessedLetters.push(e.key)
+        guessedLetters.push(e.key.toUpperCase());
         ordet.innerText = "";
         // Lägg till rätt gissade bokstäver i listan
         if (spelOrd.includes(inputValue)) {
@@ -289,30 +289,30 @@ function spelaOm() {
     spelOrd = slumpaOrd();
 }
 
-hintIcon.addEventListener("click", () => {
-    // console.log("cklickat!!!!")
-    points -= 20
-    function slumpabokstav() {
-        hintBokstav = allaLetters[Math.floor(Math.random() * allaLetters.length)];
-        hintBokstav = hintBokstav.toUpperCase();
-        return hintBokstav;
-    }
-    let insertBokstav = slumpabokstav()
-    for (let i = 0; i < visadeLetters.length; i++) {
-        while (visadeLetters.includes(insertBokstav)) {
-            console.log("Inte", insertBokstav);
-            insertBokstav = slumpabokstav();
-            console.log("Utan: ", insertBokstav);
-            //Kanske göra så att man tar ut de gissade bokstäverna ur listan ist.
-        }
-    }
+// hintIcon.addEventListener("click", () => {
+//     // console.log("cklickat!!!!")
+//     points -= 20
+//     function slumpabokstav() {
+//         hintBokstav = allaLetters[Math.floor(Math.random() * allaLetters.length)];
+//         hintBokstav = hintBokstav.toUpperCase();
+//         return hintBokstav;
+//     }
+//     let insertBokstav = slumpabokstav()
+//     for (let i = 0; i < visadeLetters.length; i++) {
+//         while (visadeLetters.includes(insertBokstav)) {
+//             console.log("Inte", insertBokstav);
+//             insertBokstav = slumpabokstav();
+//             console.log("Utan: ", insertBokstav);
+//             //Kanske göra så att man tar ut de gissade bokstäverna ur listan ist.
+//         }
+//     }
 
-    let hurmånga = allaLetters.filter(x => x === insertBokstav)
-    visadeLetters.push(insertBokstav)
-    // console.log(hintBokstav);
-    console.log(insertBokstav);
-    console.log(hurmånga)
-})
+//     let hurmånga = allaLetters.filter(x => x === insertBokstav)
+//     visadeLetters.push(insertBokstav)
+//     // console.log(hintBokstav);
+//     console.log(insertBokstav);
+//     console.log(hurmånga)
+// })
 
 showPoints.innerText = points
 parent.append(showPoints)
