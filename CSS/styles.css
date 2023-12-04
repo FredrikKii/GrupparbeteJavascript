@@ -289,8 +289,7 @@ main #error {
 	}
 
 	.game-content {
-		margin-top: 15px;
-		width: 40vw;
+		margin-top: 10px;
 		position: relative;
 		left: 18%;
 	}

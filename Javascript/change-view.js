@@ -1,5 +1,6 @@
 import { gameContentSection, userInfo } from "./type-in-letter.js"
 import { difficulty } from "./start-game.js"
+import { gameresults } from "./win-lose.js"
 const wordDisplay = document.querySelector('.type-in-letter');
 const startContent = document.querySelector('.start-content');
 const topplistaBtn = document.querySelector(".topplistaBtn")
@@ -33,10 +34,15 @@ topplistaBtn.addEventListener
 		topplistaBtn.style.display = 'none'
 		backBtn.style.display = 'block'
 		hangman.style.display = "none"
+		// gameresults.style.display = "none"
+		// gameContentSection.style.display = 'none'
+    	// ordet.style.display = 'none'
+
+		
+
 		// wordDisplay.style.display = 'none';
 		// ordet.style.display = 'none'
 		// gameContentSection.style.display = 'none'
-		gameContentSection.style.display = 'flex'
 
 		
 		// difficulty.remove('difficulty')
@@ -202,11 +208,12 @@ topplistaBtn.addEventListener
 })
 
 spelaBtn.addEventListener("click", () => {
+	gameContentSection.style.display = 'flex'
 	backBtn.style.display = 'none'
 	startContent.style.display = 'none';
 	hangman.style.display = 'block';
+	ordet.style.display = 'block'
 	// wordDisplay.style.display = 'none';
-	// ordet.style.display = 'flex'
 	// gameContentSection.style.display = 'block'
 	difficulty.style.display = 'block'
 	if (toppListaBack) {
@@ -220,7 +227,8 @@ backBtn.addEventListener('click', function() {
 	hangman.style.display = 'block';
 	topplistaBtn.style.display = 'block'
 	toppListaBack.style.display = 'none'
-	// gameContentSection.style.display = 'flex'
+	// gameresults.style.display = "block"
+
 	// ordet.style.display = 'flex'
 
 	// startContent.style.display = 'block';
