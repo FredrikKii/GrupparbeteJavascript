@@ -4,6 +4,7 @@
 	padding: 0;
 }
 
+
 body {
 	background: url('/GrupparbeteJavascript/SVG/Bakgrund.svg');
 	height: 100vh;
@@ -256,40 +257,3 @@ main #error {
 	}
 }
 
-@media (max-width: 391px) {
-
-	header {
-		font-size: 13px;
-		height: 30px;
-	}
-
-	.gameWin {
-		position: relative;
-		left: 37%;
-	}
-	.gameLose {
-		position: relative;
-		left: 35%;
-	}
-	.game-over h1 {
-		font-size: 1em;
-	}
-
-	button {
-		padding: 10px 35px;
-	}
-
-	.game-content {
-		margin-top: 10px;
-		position: relative;
-		left: 18%;
-	}
-	
-	.type-in-letter {
-		margin-top: -50px;
-	}
-	h2 {
-		font-size: 0.9em;
-	}
-
-}

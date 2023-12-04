@@ -123,11 +123,11 @@ topplistaBtn.addEventListener
 				toppListItems.classList.add("list-columner")
 				SkapaPtaggar()
 				toppListItems.innerText = userInfo[i].user
-				scoreItem.innerText = "poäng: " + userInfo[i].score
+				scoreItem.innerText = "Poäng: " + userInfo[i].score
 				scoreDate.innerText = userInfo[i].date
 				// scoreTime.innerText = userInfo[i].time
 				scoreguess.innerText = userInfo[i].guesses
-				scorelength.innerText = "ordlängd: " + userInfo[i].wordLegnth
+				scorelength.innerText = "Ordlängd: " + userInfo[i].wordLegnth
 				scoreLoss.innerText = userInfo[i].loss
 				
 			
