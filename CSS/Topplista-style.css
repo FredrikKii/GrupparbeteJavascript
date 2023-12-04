@@ -1,5 +1,6 @@
 body {
 	background: url('/GrupparbeteJavascript/SVG/Bakgrund.svg');
+	/* background: url('/SVG/Bakgrund.svg'); */
 	height: 100vh;
 	/* height: 100%; */
 	background-size: cover;
@@ -162,10 +163,14 @@ body {
 	}
 	main {
 		background: url('/GrupparbeteJavascript/SVG/Bakgrund.svg');
-		height: 50%;
+		/* background: url('/SVG/Bakgrund.svg'); */
+		height: 60%;
+		background-size: cover;
+		
 	}
 
 	body {
-		background-color: green;
+		background: none;
+		background-color: #14591D;
 	}
 }
