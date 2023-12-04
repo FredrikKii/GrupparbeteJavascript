@@ -8,9 +8,9 @@ const hangman = document.querySelector(".game-content")
 const spelaBtn = document.querySelector(".spela")
 const backBtn = document.querySelector(".goBack")
 const ordet = document.querySelector(".ordet");
+let toppListaSection = document.querySelector(".topplista-section");
 
 backBtn.style.display = 'none'
-
 let toppListaNr = 0
 // let element = 0
 let toppListItems
@@ -27,8 +27,20 @@ let toppListaHeadPTime
 let redanSkapadLista = false
 
 
+
+let focusElement = document.querySelector(".topplistaBtn");
+// focusElement.focus()
+
+
+// Lägg till klickhändelse på dokumentet för att fokusera på input när någon klickar var som helst på sidan
+// document.addEventListener("click", function () {
+// 	focusElement.focus()
+// });
+
+
 topplistaBtn.addEventListener
-	("click", () => {
+("click", () => {
+		focusElement.blur();
 		startContent.style.display = 'none'
 		difficulty.style.display = 'none'
 		topplistaBtn.style.display = 'none'
@@ -123,7 +135,7 @@ topplistaBtn.addEventListener
 			}
 
 			toppListaBack.appendChild(toppListaNr)
-			document.body.appendChild(toppListaBack)
+			toppListaSection.append(toppListaBack)
 			
 		
 			toppListaHeadPPoints.addEventListener("click", () => {
@@ -265,4 +277,4 @@ function SkapaPtaggar () {
 	scorelength = document.createElement("p")
 	scoreLoss = document.createElement("p")
 }
-export{wordDisplay, backBtn}
+export{wordDisplay, backBtn, topplistaBtn}

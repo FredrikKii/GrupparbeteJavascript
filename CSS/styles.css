@@ -220,11 +220,6 @@ main #error {
 
 @media (max-width: 650px) {
 
-	/* body {
-		padding: auto;
-		height: 100%;
-	}
-	 */
 	header {
 		font-size: 19px;
 		height: 110px;
@@ -263,10 +258,6 @@ main #error {
 
 @media (max-width: 370px) {
 
-	/* body {
-		padding: auto;
-		height: 100%;
-	} */
 	header {
 		font-size: 13px;
 		height: 90px;
@@ -295,6 +286,3 @@ main #error {
 	}
 
 }
-/* .difficultySec{
-
-} */

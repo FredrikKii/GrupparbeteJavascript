@@ -20,7 +20,7 @@ export function gameover() {
     gameWinDiv.classList.add('gameLose');
     inputDisplay.style.display = 'none'
     gameContentSection.style.display = 'none'
-    // ordet.style.display = 'none'
+    ord.style.display = 'block'
     gameresults.style.display = 'block';
     poäng.innerText = `Du fick: ${points} poäng.`;
     ord.innerText = `Det rätta ordet var: ${spelOrd}`;
@@ -60,8 +60,10 @@ export function gameWin() {
     gameresults.style.display = 'block';
     inputDisplay.style.display = 'none'
     gameContentSection.style.display = 'none'
-    // ord.style.display = 'none'
+    ord.style.display = 'none'
     gameWinDiv.classList.add('gameWin');
+    gameWinDiv.classList.remove('gameLose');
+
 
     poäng.innerText = `Du fick: ${points} poäng.`;
     // felBokstav.innerText = `Din gissning var: ${guessedLetters.join(', ').toUpperCase()}.`;
