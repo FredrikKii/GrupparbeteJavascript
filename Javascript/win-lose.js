@@ -25,7 +25,7 @@ export function gameover() {
     poäng.innerText = `Du fick: ${points} poäng.`;
     ord.innerText = `Det rätta ordet var: ${spelOrd}`;
     // felBokstav.innerText = `Din gissning: ${guessedLetters}.`;
-    felBokstav.innerText = `Antal gissningar: ${guessesMade}.`;
+    felBokstav.innerText = `Antal felgissningar: ${guessesMade}.`;
     // felBokstav.innerText = `Din gissning var: ${guessedLetters.join(', ').toUpperCase()}.`;
     gameWinDiv.classList.add('gameLose');
     gameresults.appendChild(gameWinDiv);
@@ -67,7 +67,7 @@ export function gameWin() {
 
     poäng.innerText = `Du fick: ${points} poäng.`;
     // felBokstav.innerText = `Din gissning var: ${guessedLetters.join(', ').toUpperCase()}.`;
-    felBokstav.innerText = `Antal gissningar: ${guessesMade}.`;
+    felBokstav.innerText = `Antal felgissningar: ${guessesMade}.`;
     gameresults.appendChild(gameWinDiv);
     tittel.innerText = 'Du Vann!!!';
     gameresults.appendChild(tittel);

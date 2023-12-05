@@ -132,17 +132,17 @@ function checkWin() {
 inputElement.addEventListener('keyup', function (e) {
     let  letterPattern = /^[a-öA-Ö]$/;
     if (letterPattern.test(e.key) && !guessedLetters.includes(e.key.toUpperCase())) {
-        guessesMade++
-        console.log(`antal gissning ${guessesMade}`);
-
+		console.log(`antal gissning ${guessesMade}`);
+		
         guessedLetters.push(e.key.toUpperCase());
         ordet.innerText = "";
         // Lägg till rätt gissade bokstäver i listan
         if (spelOrd.includes(inputValue)) {
-            listaBokstav.push(inputValue);
+			listaBokstav.push(inputValue);
             correct = true
         }
         else {
+			guessesMade++
             correct = false
             let felBokstav = document.createElement("p")
             felBokstav.innerText = inputValue

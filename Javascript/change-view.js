@@ -82,7 +82,7 @@ topplistaBtn.addEventListener
 					toppListaHeadP = document.createElement("p")
 					toppListaHeadPPoints = toppListaHeadP
 					toppListaHeadPPoints.classList.add("point-date")
-					toppListaHeadP.innerText = "Gissningar"
+					toppListaHeadP.innerText = "Felgissningar"
 					toppListaHeadDiv.appendChild(toppListaHeadP)
 				}
 				else if (p === 2) {
