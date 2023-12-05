@@ -28,19 +28,12 @@ let redanSkapadLista = false
 
 
 
-let focusElement = document.querySelector(".topplistaBtn");
-// focusElement.focus()
-
-
-// Lägg till klickhändelse på dokumentet för att fokusera på input när någon klickar var som helst på sidan
-// document.addEventListener("click", function () {
-// 	focusElement.focus()
-// });
+// let focusElement = document.querySelector(".topplistaBtn");
 
 
 topplistaBtn.addEventListener
 ("click", () => {
-		focusElement.blur();
+		// focusElement.blur();
 		startContent.style.display = 'none'
 		difficulty.style.display = 'none'
 		topplistaBtn.style.display = 'none'

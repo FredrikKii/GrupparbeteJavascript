@@ -92,9 +92,6 @@ hard.addEventListener("click", () => {
     console.log(LocalSWordLength);
 })
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     document.getElementById("letter-input").focus();
-// });
 console.log(`Det rätta ordet är ${spelOrd}`);
 
 let inputElement = document.querySelector('#letter-input');
@@ -134,7 +131,7 @@ function checkWin() {
 // fixa så man inte "kan" klicka i samma bokstav(alltså att den inte visas)
 inputElement.addEventListener('keyup', function (e) {
     let  letterPattern = /^[a-öA-Ö]$/;
-    if (letterPattern.test(e.key) && !guessedLetters.includes(e.key)) {
+    if (letterPattern.test(e.key) && !guessedLetters.includes(e.key.toUpperCase())) {
         guessesMade++
         console.log(`antal gissning ${guessesMade}`);
 
@@ -264,10 +261,7 @@ function handleFelGissning() {
 
 }
 
-// document.querySelector('.exit').addEventListener('click', function () {
-//     // window.location.reload();
-//     //  window.close();
-// });
+
 
 function spelaOm() {
     displayHangman();
